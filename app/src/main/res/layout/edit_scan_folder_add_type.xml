@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="ButtonStyle,RtlHardcoded,Orientation" >
+    
+    <Button
+        android:id="@+id/edit_scan_folder_dlg_add_specific_folder"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/msgs_main_edit_scan_folder_add_specific_dir"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/edit_scan_folder_dlg_request_storage_access_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/msgs_main_edit_scan_folder_request_storage_access_permission"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+</LinearLayout>

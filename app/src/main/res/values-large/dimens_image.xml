@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="folder_list_image_width">150dp</dimen>
+    <dimen name="folder_list_image_height">150dp</dimen>
+
+    <dimen name="thumbnail_list_image_width">170dp</dimen>
+    <dimen name="thumbnail_list_image_height">170dp</dimen>
+    
+</resources>

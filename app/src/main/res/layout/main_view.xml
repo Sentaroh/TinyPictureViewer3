@@ -1,0 +1,156 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}"
+    tools:ignore="RtlHardcoded,UselessParent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/main_view_picture_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+        
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical" >
+		    <Space
+		        android:layout_width="match_parent"
+		        android:layout_height="?attr/actionBarSize" />
+		    
+		    <LinearLayout
+		        android:id="@+id/main_view_spacer_view_folder_grid_top"
+		        android:layout_width="match_parent"
+		        android:layout_height="30dp" 
+		        android:orientation="vertical"/>
+
+	        <LinearLayout
+	            android:id="@+id/main_view_folder_container"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:orientation="vertical" />
+		    		    		    		    	        
+		    <LinearLayout
+		        android:id="@+id/main_view_spacer_view_folder_grid_bottom"
+		        android:layout_width="match_parent"
+		        android:layout_height="50dp" 
+		        android:orientation="vertical"/>
+	        	
+		</LinearLayout>
+
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical" >
+		    <Space
+		        android:layout_width="match_parent"
+		        android:layout_height="?attr/actionBarSize" />
+		    
+		    <LinearLayout
+		        android:id="@+id/main_view_spacer_view_thumbnail_grid_top"
+		        android:layout_width="match_parent"
+		        android:layout_height="30dp" 
+		        android:orientation="vertical"/>
+
+	        <LinearLayout
+	            android:id="@+id/main_view_thumbnail_container"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:orientation="vertical" />
+	
+		    <LinearLayout
+		        android:id="@+id/main_view_spacer_view_thumbnail_grid_bottom"
+		        android:layout_width="match_parent"
+		        android:layout_height="50dp" 
+		        android:orientation="vertical"/>
+	        	
+		</LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/main_view_progress_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical" >
+
+		    <Space
+		        android:layout_width="match_parent"
+		        android:layout_height="?attr/actionBarSize" />
+		    <LinearLayout
+		        android:id="@+id/main_view_spacer_view_progress"
+		        android:layout_width="match_parent"
+		        android:layout_height="30dp"
+		        android:orientation="vertical" />
+            <ProgressBar
+                android:id="@+id/main_view_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                 />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/main_view_spacer_view_toolbar_top"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" 
+                android:orientation="vertical"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar" >
+	            <LinearLayout
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_gravity="end"
+				    android:orientation="horizontal">
+					<Spinner
+					    android:id="@+id/main_view_toolbar_folder_spinner"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:prompt="@string/msgs_main_view_toolbar_folder_spinner_prompt"
+					    android:background="@null"
+					    android:spinnerMode="dialog" />
+	                
+					<Spinner
+					    android:id="@+id/main_view_toolbar_picture_spinner"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+			            android:prompt="@string/msgs_main_view_toolbar_picture_spinner_prompt"
+			            android:background="@null"
+			            android:spinnerMode="dialog" />                
+	            </LinearLayout>
+                
+			</androidx.appcompat.widget.Toolbar>
+            <LinearLayout
+                android:id="@+id/main_view_spacer_view_toolbar_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" 
+                android:orientation="vertical"/>
+            
+        </LinearLayout>
+    </RelativeLayout>
+    
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/edit_scan_folder_dlg_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/edit_scan_folder_dlg_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/msgs_main_edit_scan_folder_title"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </LinearLayout>
+
+        <include layout="@layout/divider_line1_turquoise" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/edit_scan_folder_dlg_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="検索対象"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+        <CheckedTextView
+            android:id="@+id/edit_scan_folder_dlg_search_item_xmp_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="タグ" />
+
+        <CheckedTextView
+            android:id="@+id/edit_scan_folder_dlg_search_item_xmp_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="説明" />
+
+        <CheckedTextView
+            android:id="@+id/edit_scan_folder_dlg_search_item_xmp_lable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ラベル" />
+
+        <CheckedTextView
+            android:id="@+id/edit_scan_folder_dlg_search_item_xmp_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="レーティング" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+    
+</LinearLayout>

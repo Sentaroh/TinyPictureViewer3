@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msgs_menu_refresh_file_list">ファイルリストの同期</string>
+    <string name="msgs_menu_recreate_cache_file">キャッシュファイルの再作成&#8230;</string>
+    <string name="msgs_menu_scan_folder">写真フォルダーの編集&#8230;</string>
+	<string name="msgs_menu_log_management">ログファイル管理&#8230;</string>
+	<string name="msgs_menu_about">アプリについて&#8230;</string>
+	<string name="msgs_menu_settings">設定&#8230;</string>
+	<string name="msgs_menu_kill">強制終了&#8230;</string>
+	<string name="msgs_menu_uninstall">アプリのアンインストール&#8230;</string>
+	<string name="msgs_menu_quit">閉じる</string>
+	<string name="msgs_menu_start_camera">カメラ</string>
+	<string name="msgs_menu_sort">並替え</string>
+    
+    <string name="msgs_menu_show_hidden_file_to_show">隠しディレクトリを表示する</string>
+    <string name="msgs_menu_show_hidden_file_to_hide">隠しディレクトリを表示しない&#8230;</string>
+
+    <string name="msgs_menu_show_folder_view_show_simple_view">簡易フォルダー表示</string>
+    <string name="msgs_menu_show_folder_view_show_standard_view">詳細フォルダー表示</string>
+
+    <string name="msgs_menu_config_backup_restore">設定の保存・復元&#8230;</string>
+
+    <string name="msgs_menu_show_sdcard_selector">SDCARD書込許可</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <header android:title="@string/settings_file_title"
+	    android:fragment="com.sentaroh.android.TinyPictureViewer3.ActivitySettings$SettingsFile"/>
+    <header android:title="@string/settings_ui_title"
+	    android:fragment="com.sentaroh.android.TinyPictureViewer3.ActivitySettings$SettingsUi"/>
+	<header android:title="@string/settings_misc_title"
+	    android:fragment="com.sentaroh.android.TinyPictureViewer3.ActivitySettings$SettingsMisc"/>
+</preference-headers>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="HardcodedText,Orientation,RtlHardcoded,DisableBaselineAlignment,UselessParent" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/scan_folder_list_item_delete_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/context_button_trash"
+                android:layout_gravity="center_vertical"
+                android:scaleType="centerCrop"
+                android:text="@string/msgs_main_edit_scan_folder_to_delete_directory" />
+
+            <com.sentaroh.android.Utilities3.Widget.NonWordwrapTextView
+                android:id="@+id/scan_folder_list_item_scan_folder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="/sdcard/Pictures"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/scan_folder_list_item_process_sub_diretories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/msgs_main_edit_scan_folder_process_sub_directories" />
+    </LinearLayout>
+        <RadioGroup
+            android:id="@+id/scan_folder_list_item_rg_select_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/scan_folder_list_item_rb_select_type_include"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/msgs_main_edit_scan_folder_select_include" />
+
+            <RadioButton
+                android:id="@+id/scan_folder_list_item_rb_select_type_exclude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/msgs_main_edit_scan_folder_select_exclude" />
+        </RadioGroup>
+
+
+
+</LinearLayout>

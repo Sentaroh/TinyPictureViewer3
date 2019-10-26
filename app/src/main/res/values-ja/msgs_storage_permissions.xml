@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msgs_storage_permission_title">ストレージの許可</string>
+</resources>

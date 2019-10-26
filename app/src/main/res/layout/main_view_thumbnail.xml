@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_view_thumbnail_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/main_view_thumbnail_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/msgs_main_thumbnail_view_empty_picture_file"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <GridView
+        android:id="@+id/main_view_thumbnail_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:columnWidth="150dp"
+        android:horizontalSpacing="3dp"
+        android:listSelector="@drawable/grid_view_selector"
+        android:numColumns="auto_fit"
+        android:scrollbarStyle="outsideOverlay"
+    	android:fastScrollEnabled="false"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="8dp"
+        tools:listitem="@android:layout/simple_list_item_checked" >
+    </GridView>
+
+    <include layout="@layout/context_view_clipboard" />
+    <include layout="@layout/context_view_thumbnail" />
+
+</LinearLayout>

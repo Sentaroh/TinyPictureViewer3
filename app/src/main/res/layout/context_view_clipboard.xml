@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/context_view_clipboard_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    tools:ignore="HardcodedText" >
+
+    <ImageView
+        android:id="@+id/context_view_clipboard_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|start" />
+
+    <TextView
+        android:id="@+id/context_view_clipboard_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Copy/Cut item"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <Button
+        android:id="@+id/context_view_clipboard_clear"
+        android:layout_width="33dp"
+        android:layout_height="wrap_content"
+        android:text="C"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>

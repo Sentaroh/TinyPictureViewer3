@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msgs_menu_refresh_file_list">Refresh file list</string>
+    <string name="msgs_menu_recreate_cache_file">Recreate cache file&#8230;</string>
+    <string name="msgs_menu_scan_folder">Edit Picture folder&#8230;</string>
+	<string name="msgs_menu_log_management">Manage log file&#8230;</string>
+	<string name="msgs_menu_about">About application&#8230;</string>
+	<string name="msgs_menu_settings">Settings&#8230;</string>
+	<string name="msgs_menu_kill">Kill the application&#8230;</string>
+	<string name="msgs_menu_uninstall">Uninstall the application&#8230;</string>
+	<string name="msgs_menu_quit">Close</string>
+	<string name="msgs_menu_start_camera">Camera</string>
+	<string name="msgs_menu_sort">Sort</string>
+
+    <string name="msgs_menu_show_hidden_file_to_show">To show hidden directory</string>
+    <string name="msgs_menu_show_hidden_file_to_hide">To hide hidden directory&#8230;</string>
+
+    <string name="msgs_menu_show_folder_view_show_simple_view">To show simple folder view</string>
+    <string name="msgs_menu_show_folder_view_show_standard_view">To show standard folder view</string>
+
+    <string name="msgs_menu_config_backup_restore">Backup/Restore configuration&#8230;</string>
+
+    <string name="msgs_menu_show_sdcard_selector">SDCARD Write Permission</string>
+		
+</resources>

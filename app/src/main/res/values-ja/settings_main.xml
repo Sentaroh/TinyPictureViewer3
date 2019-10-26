@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_main_title">設定</string>
+    
+    <string name="settings_file_title">ファイル</string>
+
+    <string name="settings_process_hidden_files_title">隠しファイル</string>
+	<string name="settings_process_hidden_files_summary_ena">隠しファイルを表示する</string>
+    
+    <string name="settings_camera_folder_always_top_title">カメラフォルダーの表示位置</string>
+	<string name="settings_camera_folder_always_top_summary_ena">カメラフォルダーを常に最上部に表示する</string>
+
+	<string name="settings_file_changed_auto_detect_title">ファイル変更検出</string>
+	<string name="settings_file_changed_auto_detect_dialog_title">ファイル変更検出の選択</string>
+	<string-array name="settings_file_changed_auto_detect_list_entries">
+        <item>無し</item>
+        <item>常にアプリがフォアグラウンドに遷移した時にファイルリストの同期を行う</item>
+        <item>メディアストアからの変更通知が行われた時にファイルリストの同期を行う</item>
+    </string-array>
+			
+    <string name="settings_folder_filter_character_count_title">フォルダーフィルターの文字数</string>
+	<string name="settings_folder_filter_character_count_summary">%s文字</string>
+	<string name="settings_folder_filter_character_count_dialog_title">フォルダーフィルターの文字数</string>
+	<string name="settings_folder_filter_character_count">settings_folder_filter_character_count</string>
+	<string-array name="settings_folder_filter_character_count_list_entries">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string name="settings_clear_cache_title">キャッシュの削除</string>
+	<string name="settings_clear_cache_message">キャッシュを削除しますか？</string>
+
+    <string name="settings_suppress_add_external_storage_notification_title">外部ストレージ通知</string>
+    <string name="settings_suppress_add_external_storage_notification_message">外部ストレージ追加の通知を表示しない</string>
+
+    <string name="settings_ui_title">ユーザーインターフェース</string>
+	
+	<string name="settings_max_screen_brightness_when_image_showed_title">画面輝度</string>
+	<string name="settings_max_screen_brightness_when_image_showed_summary_ena">写真表示時に画面輝度を最高にする</string>
+
+	<string name="settings_picture_display_option_restore_when_startup_title">写真表示設定</string>
+	<string name="settings_picture_display_option_restore_when_startup_summary_ena">前回の写真表示設定で写真を表示する</string>
+
+    <string name="settings_picture_display_default_ui_mode_title">写真表示画面</string>
+	<string name="settings_picture_display_default_ui_mode_summary">%s</string>
+	<string name="settings_picture_display_default_ui_mode_dialog_title">写真表示モードの選択</string>
+	<string-array name="settings_picture_display_default_ui_mode_list_entries">
+        <item>操作ボタン無し</item>
+        <item>操作ボタンを表示</item>
+    </string-array>
+					
+    <string name="settings_default_current_setting">現設定=</string>
+
+    <string name="settings_other_title">Other</string>
+    
+    <string name="settings_misc_title">その他</string>
+    
+</resources>

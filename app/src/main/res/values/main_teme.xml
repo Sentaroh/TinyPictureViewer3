@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="CustomSpinner">
+	    <attr name="spinnerBackground" format="reference" />
+	</declare-styleable>
+    
+    <style name="spinner_normal" parent="@android:style/Widget.Spinner" >
+        <item name="android:background">@drawable/action_bar_spinner_color_background</item>
+    </style>
+    
+    <style name="spinner_light" parent="@android:style/Widget.Spinner" > 
+        <item name="android:background">@drawable/spinner_color_background_light</item>
+    </style>
+    
+    <style name="Main" parent="Theme.AppCompat.NoActionBar" >
+        <item name="android:spinnerStyle">@style/spinner_normal</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="CustomActionBarTheme" parent="Base.Theme.AppCompat">
+        <item name="android:spinnerStyle">@style/spinner_normal</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+    
+    <style name="MainLight" parent="Base.Theme.AppCompat.Light.DarkActionBar" >
+        <item name="android:spinnerStyle">@style/spinner_light</item>
+	</style>
+
+    <style name="MainTranslucent" parent="Theme.AppCompat.NoActionBar" >
+        <item name="android:spinnerStyle">@style/spinner_normal</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionBarOverlay">true</item>
+
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+        
+		<item name="android:windowBackground">@android:color/transparent</item>
+	    <item name="android:colorBackgroundCacheHint">@null</item>
+	    <item name="android:windowIsTranslucent">true</item>        
+    </style>
+    
+</resources>

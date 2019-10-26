@@ -1,0 +1,68 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:appv7="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_top_start_camera"
+          android:title="@string/msgs_menu_start_camera" 
+          android:icon="@android:drawable/ic_menu_camera"
+          appv7:showAsAction="always"/>
+    
+    <item android:id="@+id/menu_top_sort_folder"
+          android:title="@string/msgs_menu_sort" 
+          android:icon="@drawable/ic_128_sort_dsc_gray"
+          appv7:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/menu_top_sort_thumbnail"
+          android:title="@string/msgs_menu_sort" 
+          android:icon="@drawable/ic_128_sort_dsc_gray"
+          appv7:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/menu_top_refresh_file_list"
+          android:title="@string/msgs_menu_refresh_file_list" 
+          android:icon="@drawable/ic_128_refresh"
+          appv7:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/menu_top_edit_scan_folder"
+          android:title="@string/msgs_menu_scan_folder" 
+          android:icon="@drawable/context_button_open"
+          appv7:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/menu_top_show_hide_hidden"
+          android:title="@string/msgs_menu_show_hidden_file_to_show" 
+          />
+
+    <item android:id="@+id/menu_top_switch_folder_view"
+        android:title="@string/msgs_menu_show_folder_view_show_simple_view"
+        />
+
+    <item android:id="@+id/menu_top_log_management"
+          android:title="@string/msgs_menu_log_management"
+          />
+    
+    <item android:id="@+id/menu_top_settings"
+          android:title="@string/msgs_menu_settings" 
+          android:icon="@android:drawable/ic_menu_preferences"
+          />
+    
+    <item android:id="@+id/menu_top_about"
+          android:title="@string/msgs_menu_about" 
+          android:icon="@android:drawable/ic_menu_info_details"
+          />
+    
+    <item android:id="@+id/menu_top_quit"
+          android:title="@string/msgs_menu_quit"
+          android:icon="@drawable/ic_32_close_gray"
+          />
+    
+    <item android:id="@+id/menu_top_kill"
+          android:title="@string/msgs_menu_kill"
+          />
+
+    <item android:id="@+id/menu_top_uninstall"
+          android:title="@string/msgs_menu_uninstall"
+          />
+
+    <item android:id="@+id/menu_top_switch_test_mode"
+          android:title="Switch test mode"
+          />
+    
+</menu>
