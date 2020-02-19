@@ -430,7 +430,7 @@ public class ActivityMain extends AppCompatActivity {
                 }
                 @Override
                 public void negativeResponse(Context context, Object[] objects) {
-                    p_ntfy.notifyToListener(false, null);
+                    if (p_ntfy!=null) p_ntfy.notifyToListener(false, null);
                 }
             });
             showWarningDialog(mActivity, mGp, mUtil,
@@ -442,7 +442,7 @@ public class ActivityMain extends AppCompatActivity {
                     ntfy);
 
         } else {
-            p_ntfy.notifyToListener(true, null);
+            if (p_ntfy!=null) p_ntfy.notifyToListener(true, null);
         }
     }
 
