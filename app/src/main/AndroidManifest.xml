@@ -17,6 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/Main"
         android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
         android:hardwareAccelerated="true">
         <activity
             android:name=".ActivityMain"
