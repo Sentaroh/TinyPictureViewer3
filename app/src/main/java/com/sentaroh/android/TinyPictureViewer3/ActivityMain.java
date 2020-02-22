@@ -331,7 +331,59 @@ public class ActivityMain extends AppCompatActivity {
             @Override
             public void positiveResponse(Context context, Object[] objects) {
                 mStoragePermissionPrimaryListener=null;
-                processOnResumed();
+                if (mRestartStatus==1) {
+                    mGp.refreshMediaDir(mContext);
+                    if (mGp.currentView==CURRENT_VIEW_PICTURE) {
+                        if (mGp.uiMode==UI_MODE_FULL_SCREEN) {
+                            setUiFullScreen();
+                        } else if (mGp.uiMode==UI_MODE_FULL_SCREEN_WITH_NAVI) {
+                            setUiFullScreenWithNaviButton();
+                        }
+                    }
+                } else {
+                    if (mRestartStatus==0) {
+                        Intent in=getIntent();
+                        if (in!=null && in.getData()!=null) {
+                            if (!showPictureByIntent(in)) {
+                                mGp.showSinglePicture=true;
+                                mTerminateApplication=true;
+                                finish();
+                            }
+                        }
+                    } else if (mRestartStatus==2) {
+                        if (mGp.activityIsDestroyed) {
+                            mCommonDlg.showCommonDialog(false, "W",
+                                    getString(R.string.msgs_main_restart_by_destroyed),"",null);
+                        }
+                    }
+                    if (!mGp.showSinglePicture) {
+                        mGp.folderView.setVisibility(LinearLayout.INVISIBLE);
+                        NotifyEvent ntfy=new NotifyEvent(mContext);
+                        ntfy.setListener(new NotifyEventListener() {
+                            @Override
+                            public void positiveResponse(Context context, Object[] objects) {
+                                mGp.folderView.setVisibility(LinearLayout.VISIBLE);
+                                buildFolderList();
+                                setFolderViewListener();
+                                setThumbnailViewListener();
+                            }
+                            @Override
+                            public void negativeResponse(Context context, Object[] objects) {
+                                mGp.folderView.setVisibility(LinearLayout.VISIBLE);
+                                buildFolderList();
+                                setFolderViewListener();
+                                setThumbnailViewListener();
+                            }
+                        });
+                        showExternalStorageNotification(ntfy);
+                    } else {
+                        mGp.folderView.setVisibility(LinearLayout.GONE);
+                        mGp.thumbnailView.setVisibility(LinearLayout.GONE);
+                        mGp.pictureView.setVisibility(LinearLayout.GONE);
+                    }
+                    mRestartStatus=1;
+                    mGp.activityIsDestroyed=false;
+                }
             }
             @Override
             public void negativeResponse(Context context, Object[] objects) { }
@@ -348,70 +400,6 @@ public class ActivityMain extends AppCompatActivity {
             }
         }
 	};
-
-	private void processOnResumed() {
-        if (mRestartStatus==1) {
-            mGp.refreshMediaDir(mContext);
-            if (mGp.currentView==CURRENT_VIEW_PICTURE) {
-                if (mGp.uiMode==UI_MODE_FULL_SCREEN) {
-                    setUiFullScreen();
-                } else if (mGp.uiMode==UI_MODE_FULL_SCREEN_WITH_NAVI) {
-                    setUiFullScreenWithNaviButton();
-//				} else if (mGp.uiMode==UI_MODE_FULL_SCREEN_WITH_SYSTEM_VIEW) {
-//					setUiFullScreenWithSystemView();
-                }
-            }
-        } else {
-//			CommonUtilities.cleanupWorkFile(mGp);
-            if (mRestartStatus==0) {
-                Intent in=getIntent();
-                if (in!=null && in.getData()!=null) {
-                    if (!showPictureByIntent(in)) {
-                        mGp.showSinglePicture=true;
-                        mTerminateApplication=true;
-                        finish();
-                    }
-                }
-            } else if (mRestartStatus==2) {
-                if (mGp.activityIsDestroyed) {
-                    mCommonDlg.showCommonDialog(false, "W",
-                            getString(R.string.msgs_main_restart_by_destroyed),"",null);
-                } else {
-//					mCommonDlg.showCommonDialog(false, "W",
-//					getString(R.string.msgs_main_restart_by_killed),"",null);
-                }
-            }
-            if (!mGp.showSinglePicture) {
-                mGp.folderView.setVisibility(LinearLayout.INVISIBLE);
-                NotifyEvent ntfy=new NotifyEvent(mContext);
-                ntfy.setListener(new NotifyEventListener() {
-                    @Override
-                    public void positiveResponse(Context context, Object[] objects) {
-                        mGp.folderView.setVisibility(LinearLayout.VISIBLE);
-                        buildFolderList();
-                        setFolderViewListener();
-                        setThumbnailViewListener();
-                    }
-
-                    @Override
-                    public void negativeResponse(Context context, Object[] objects) {
-                        mGp.folderView.setVisibility(LinearLayout.VISIBLE);
-                        buildFolderList();
-                        setFolderViewListener();
-                        setThumbnailViewListener();
-                    }
-                });
-                showExternalStorageNotification(ntfy);
-            } else {
-                mGp.folderView.setVisibility(LinearLayout.GONE);
-                mGp.thumbnailView.setVisibility(LinearLayout.GONE);
-                mGp.pictureView.setVisibility(LinearLayout.GONE);
-            }
-            mRestartStatus=1;
-            mGp.activityIsDestroyed=false;
-        }
-
-    }
 
     private void showExternalStorageNotification(final NotifyEvent p_ntfy) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
