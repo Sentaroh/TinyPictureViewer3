@@ -57,9 +57,9 @@
           android:title="@string/msgs_menu_kill"
           />
 
-    <item android:id="@+id/menu_top_uninstall"
-          android:title="@string/msgs_menu_uninstall"
-          />
+<!--    <item android:id="@+id/menu_top_uninstall"-->
+<!--          android:title="@string/msgs_menu_uninstall"-->
+<!--          />-->
 
     <item android:id="@+id/menu_top_switch_test_mode"
           android:title="Switch test mode"

@@ -382,10 +382,12 @@ public class ActivityMain extends AppCompatActivity {
                 }
             }
             if (!mGp.showSinglePicture) {
+                mGp.folderView.setVisibility(LinearLayout.INVISIBLE);
                 NotifyEvent ntfy=new NotifyEvent(mContext);
                 ntfy.setListener(new NotifyEventListener() {
                     @Override
                     public void positiveResponse(Context context, Object[] objects) {
+                        mGp.folderView.setVisibility(LinearLayout.VISIBLE);
                         buildFolderList();
                         setFolderViewListener();
                         setThumbnailViewListener();
@@ -393,6 +395,7 @@ public class ActivityMain extends AppCompatActivity {
 
                     @Override
                     public void negativeResponse(Context context, Object[] objects) {
+                        mGp.folderView.setVisibility(LinearLayout.VISIBLE);
                         buildFolderList();
                         setFolderViewListener();
                         setThumbnailViewListener();
@@ -427,10 +430,13 @@ public class ActivityMain extends AppCompatActivity {
                                 addScanFolderItem(mGp.settingScanDirectoryList, "/stotage/"+uuid+"/DCIM", true, true);
                                 addScanFolderItem(mGp.settingScanDirectoryList, "/stotage/"+uuid+"/Pictures", true, true);
                             }
+                            p_ntfy.notifyToListener(true, null);
                         }
 
                         @Override
-                        public void negativeResponse(Context context, Object[] objects) {}
+                        public void negativeResponse(Context context, Object[] objects) {
+                            p_ntfy.notifyToListener(false, null);
+                        }
                     });
                     requestLocalStoragePermission(ntfy);
 
@@ -866,9 +872,9 @@ public class ActivityMain extends AppCompatActivity {
 			case R.id.menu_top_kill:
 				confirmKill();
 				return true;			
-			case R.id.menu_top_uninstall:
-				uninstallApplication();
-				return true;			
+//			case R.id.menu_top_uninstall:
+//				uninstallApplication();
+//				return true;
 			case R.id.menu_top_switch_test_mode:
 				mGp.pictureShowTestMode=!mGp.pictureShowTestMode;
 				return true;
@@ -4501,9 +4507,19 @@ public class ActivityMain extends AppCompatActivity {
 //                                setSpinnerSyncFolderStorageSelector(sti, sp_sync_folder_local_storage_selector, sfev.folder_storage_uuid, !sfev.folder_master);
                             }
                         } else {
+                            NotifyEvent ntfy_deny = new NotifyEvent(mContext);
+                            ntfy_deny.setListener(new NotifyEvent.NotifyEventListener() {
+                                @Override
+                                public void positiveResponse(Context c, Object[] o) {
+                                    p_ntfy.notifyToListener(false, null);
+                                }
+
+                                @Override
+                                public void negativeResponse(Context c, Object[] o) {}
+                            });
                             mCommonDlg.showCommonDialog(false, "W",
                                     mContext.getString(R.string.msgs_main_external_storage_select_required_title),
-                                    mContext.getString(R.string.msgs_main_external_storage_select_deny_msg), null);
+                                    mContext.getString(R.string.msgs_main_external_storage_select_deny_msg), ntfy_deny);
 
                         }
                     }
@@ -4519,7 +4535,9 @@ public class ActivityMain extends AppCompatActivity {
             }
 
             @Override
-            public void negativeResponse(Context context, Object[] objects) {}
+            public void negativeResponse(Context context, Object[] objects) {
+                p_ntfy.notifyToListener(false, null);
+            }
         });
         StoragePermission sp=new StoragePermission(mActivity, mCommonDlg, ntfy);
         sp.showDialog();
@@ -4693,6 +4711,7 @@ public class ActivityMain extends AppCompatActivity {
 //				getString(R.string.msgs_main_uninstall_confirm_message), ntfy);
 		Uri uri= Uri.fromParts("package",getPackageName(),null);
 		Intent intent=new Intent(Intent.ACTION_DELETE,uri);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
 	};
 
