@@ -2837,7 +2837,7 @@ public class ActivityMain extends AppCompatActivity {
 		mUiHandler.post(new Runnable(){
 			@Override
 			public void run() {
-				mGp.thumbnailGridView.setSelection(pic_pos);
+//				mGp.thumbnailGridView.setSelection(pic_pos);
 				Runtime.getRuntime().gc();
 			}
 		});
