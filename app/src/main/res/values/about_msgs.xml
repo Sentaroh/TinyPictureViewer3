@@ -3,7 +3,9 @@
 <resources>
     <string name="msgs_about_dlg_func_btn">Function</string>
     <string name="msgs_about_dlg_change_btn">Change log</string>
+    <string name="msgs_about_dlg_privacy_btn">Privacy</string>
     <string name="msgs_dlg_title_about">TinyPictureViewer3</string>
     <string name="msgs_dlg_title_about_func_desc">TinyPictureViewer3_Desc_EN_Short.htm</string>
     <string name="msgs_dlg_title_about_change_desc">TinyPictureViewer3_Change_EN.htm</string>
+    <string name="msgs_dlg_title_about_privacy_desc">TinyPictureViewer3_Privacy_EN.htm</string>
 </resources>

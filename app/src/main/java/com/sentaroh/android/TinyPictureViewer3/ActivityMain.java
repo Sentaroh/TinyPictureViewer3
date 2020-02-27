@@ -4598,12 +4598,16 @@ public class ActivityMain extends AppCompatActivity {
 		CustomTabContentView tabViewProf = new CustomTabContentView(this,getString(R.string.msgs_about_dlg_func_btn));
 		tab_host.addTab(tab_host.newTabSpec("func").setIndicator(tabViewProf).setContent(android.R.id.tabcontent));
 
-		CustomTabContentView tabViewHist = new CustomTabContentView(this,getString(R.string.msgs_about_dlg_change_btn));
+        CustomTabContentView tabViewPrivacy = new CustomTabContentView(this,getString(R.string.msgs_about_dlg_privacy_btn));
+        tab_host.addTab(tab_host.newTabSpec("privacy").setIndicator(tabViewPrivacy).setContent(android.R.id.tabcontent));
+
+        CustomTabContentView tabViewHist = new CustomTabContentView(this,getString(R.string.msgs_about_dlg_change_btn));
 		tab_host.addTab(tab_host.newTabSpec("change").setIndicator(tabViewHist).setContent(android.R.id.tabcontent));
 
         LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         LinearLayout ll_func=(LinearLayout)vi.inflate(R.layout.about_dialog_func,null);
         LinearLayout ll_change=(LinearLayout)vi.inflate(R.layout.about_dialog_change,null);
+        LinearLayout ll_privacy=(LinearLayout)vi.inflate(R.layout.about_dialog_privacy,null);
 
 		final WebView func_view=(WebView)ll_func.findViewById(R.id.about_dialog_function);
 		func_view.loadUrl("File:///android_asset/"+getString(R.string.msgs_dlg_title_about_func_desc));
@@ -4616,11 +4620,16 @@ public class ActivityMain extends AppCompatActivity {
 		change_view.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 //		change_view.getSettings().setBuiltInZoomControls(true);
 
+        final WebView privacy_view=(WebView)ll_privacy.findViewById(R.id.about_dialog_privacy);
+        privacy_view.loadUrl("File:///android_asset/"+getString(R.string.msgs_dlg_title_about_privacy_desc));
+        privacy_view.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
 		final CustomViewPagerAdapter adapter=new CustomViewPagerAdapter(this,
-	    		new WebView[]{func_view, change_view});
+	    		new WebView[]{func_view, privacy_view, change_view});
 		final CustomViewPager mAboutViewPager=(CustomViewPager)dialog.findViewById(R.id.about_view_pager);
 //	    mMainViewPager.setBackgroundColor(mThemeColorList.window_color_background);
 		mAboutViewPager.setAdapter(adapter);
+        mAboutViewPager.setOffscreenPageLimit(3);
 		mAboutViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
 		    @Override
 		    public void onPageSelected(int position) {
