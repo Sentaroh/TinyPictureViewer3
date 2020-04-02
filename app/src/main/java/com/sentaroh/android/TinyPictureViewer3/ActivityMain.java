@@ -93,6 +93,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.sentaroh.android.TinyPictureViewer3.Log.LogManagementFragment;
 import com.sentaroh.android.TinyPictureViewer3.Log.LogUtil;
+
+import com.sentaroh.android.TinyPictureViewer3.BuildConfig;
+
 import com.sentaroh.android.Utilities3.AppUncaughtExceptionHandler;
 import com.sentaroh.android.Utilities3.ContextButton.ContextButtonUtil;
 import com.sentaroh.android.Utilities3.Dialog.CommonDialog;
