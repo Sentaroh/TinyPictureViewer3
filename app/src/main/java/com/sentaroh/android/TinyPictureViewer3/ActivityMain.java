@@ -249,27 +249,11 @@ public class ActivityMain extends AppCompatActivity {
 	   	    @Override
 	   	    public void onChange(boolean selfChange, Uri uri) {
 	   	    	mUtil.addDebugMsg(1,"I","onChange entered "+"selfChange="+selfChange+", Uri="+uri);
-//  	    	if (mTcBuildFolderList==null) {
-//  				if (mGp.settingAutoFileChangeDetection.equals(AUTO_FILE_CHANGE_DETECTION_MEDIA_STORE_CHANGED)) {
-//  					buildFolderList();
-//  				}
-//  	    	}
 	   	    	mRefreshFilelistRequired=true;
 	   	    };
         };
         getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, mContentObserver);
         cleanupCacheFile();
-//        SafFile3 rf=new SafFile3(mContext, "/storage/emulated/0");
-//        ContentProviderClient client = mContext.getContentResolver().acquireUnstableContentProviderClient(rf.getUri().getAuthority());
-//        mUtil.addDebugMsg(1,"I", "cpc start");
-//        client.getLocalContentProvider();
-//        mUtil.addDebugMsg(1,"I", "cpc end");
-
-//        SafFile3 sf=new SafFile3(mContext, "/storage/1EFB-3213");
-//        SafFile3 sf=new SafFile3(mContext, "/storage/emulated/0");
-//        SafFile3[] fl=sf.listFiles();
-//        for(SafFile3 item:fl) mUtil.addDebugMsg(1, "I", "File="+item.getPath());
-
     }
 
     private class MyUncaughtExceptionHandler extends AppUncaughtExceptionHandler {
@@ -537,20 +521,6 @@ public class ActivityMain extends AppCompatActivity {
 		mGp.pictureFileCacheList.clear();
 	};
 
-//	@Override
-//	public void onTrimMemory(int level) {
-//		super.onTrimMemory(level);
-//		mUtil.addDebugMsg(1, "I", "onTrimMemory entered, level="+level);
-//       // Application process is follow
-//		mUiHandler.postDelayed(new Runnable(){
-//			@Override
-//			public void run() {
-//				Runtime.getRuntime().gc();
-//			}
-//		}, 100);
-//
-//	};
-
 	@Override
 	public void onPause() {
 		super.onPause();
@@ -646,12 +616,9 @@ public class ActivityMain extends AppCompatActivity {
 								Runtime.getRuntime().gc();
 							}
 						},500);
-//						mGp.adapterThumbnailView.setPictureList(null);
-//						mGp.adapterThumbnailView.notifyDataSetChanged();
 						mUiHandler.post(new Runnable(){
 							@Override
 							public void run() {
-//								mGp.mainProgressBar.setVisibility(ProgressBar.VISIBLE);
 								showFolderView();
 							}
 						});
@@ -675,11 +642,6 @@ public class ActivityMain extends AppCompatActivity {
     private void closeApplication() {
         mTerminateApplication=true;
         finish();
-//        Intent in=new Intent();
-//        in.setAction(Intent.ACTION_MAIN);
-//        in.addCategory(Intent.CATEGORY_HOME);
-//        in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(in);
     }
 	
 	public void refreshOptionMenu() {
@@ -1553,13 +1515,6 @@ public class ActivityMain extends AppCompatActivity {
 		enableMainUi=true;
 		if (mGp.adapterFolderView!=null) mGp.adapterFolderView.setAdapterEnabled(true);
 		if (mGp.adapterThumbnailView!=null) mGp.adapterThumbnailView.setAdapterEnabled(true);
-//		mUiHandler.post(new Runnable(){
-//			@Override
-//			public void run() {
-//				mGp.mFolderGridView.setAlpha(1.0f);
-//				mGp.mThumbnailGridView.setAlpha(1.0f);
-//			}
-//		});
 		refreshOptionMenu();
 	};
 	
@@ -1568,13 +1523,6 @@ public class ActivityMain extends AppCompatActivity {
 		enableMainUi=false;
 		if (mGp.adapterFolderView!=null) mGp.adapterFolderView.setAdapterEnabled(false);
 		if (mGp.adapterThumbnailView!=null) mGp.adapterThumbnailView.setAdapterEnabled(false);
-//		mUiHandler.post(new Runnable(){
-//			@Override
-//			public void run() {
-//				mGp.mFolderGridView.setAlpha(0.3f);
-//				mGp.mThumbnailGridView.setAlpha(0.3f);
-//			}
-//		});
 		refreshOptionMenu();
 	};
 	
@@ -1930,16 +1878,6 @@ public class ActivityMain extends AppCompatActivity {
 
 	};
 
-//	public void setUiFullScreenWithSystemView() {
-//		mGp.uiMode=UI_MODE_FULL_SCREEN_WITH_SYSTEM_VIEW;
-//		mGp.mainToolBar.setVisibility(android.widget.Toolbar.GONE);
-//		setUiShowSystemView();
-//		mGp.pictureViewBottomControl.setVisibility(LinearLayout.INVISIBLE);//GONE);
-//		mGp.pictureViewTopControl.setVisibility(TextView.INVISIBLE);//GONE);
-//		if (!mGp.showSinglePicture) mGp.saveSettingPictureDisplayUiMode(mContext);
-//
-//	};
-
 	public void setUiFullScreenWithNaviButton() {
 		mGp.uiMode=UI_MODE_FULL_SCREEN_WITH_NAVI;
 		mGp.mainToolBar.setVisibility(android.widget.Toolbar.GONE);
@@ -1992,17 +1930,6 @@ public class ActivityMain extends AppCompatActivity {
     		btn.setEnabled(false);
     	}
     };
-
-//    private boolean isSelectedFolderIsExternalSdcard() {
-//    	boolean result=false;
-//    	for(FolderListItem fli:mGp.adapterFolderView.getFolderList()) {
-//    		if (fli.isSelected() && !fli.getParentDirectory().startsWith(mGp.internalRootDirectory)) {
-//    			result=true;
-//    			break;
-//    		}
-//    	}
-//    	return result;
-//    };
 
     private void setFolderViewContextButtonVisibility() {
         boolean sdcard_usable=false;
