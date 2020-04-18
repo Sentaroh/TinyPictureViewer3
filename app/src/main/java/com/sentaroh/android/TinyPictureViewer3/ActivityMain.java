@@ -190,7 +190,7 @@ public class ActivityMain extends AppCompatActivity {
         StrictMode.setVmPolicy(builder.build());
 
 	    mContext=getApplicationContext();
-	    mActivity=this;
+	    mActivity=ActivityMain.this;
 	    requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         mFragmentManager=getSupportFragmentManager();
         mRestartStatus=0;
@@ -4525,13 +4525,13 @@ public class ActivityMain extends AppCompatActivity {
 	    tab_widget.setStripEnabled(false);
 	    tab_widget.setShowDividers(LinearLayout.SHOW_DIVIDER_NONE);
 
-		CustomTabContentView tabViewProf = new CustomTabContentView(this,getString(R.string.msgs_about_dlg_func_btn));
+		CustomTabContentView tabViewProf = new CustomTabContentView(mContext,getString(R.string.msgs_about_dlg_func_btn));
 		tab_host.addTab(tab_host.newTabSpec("func").setIndicator(tabViewProf).setContent(android.R.id.tabcontent));
 
-        CustomTabContentView tabViewPrivacy = new CustomTabContentView(this,getString(R.string.msgs_about_dlg_privacy_btn));
+        CustomTabContentView tabViewPrivacy = new CustomTabContentView(mContext,getString(R.string.msgs_about_dlg_privacy_btn));
         tab_host.addTab(tab_host.newTabSpec("privacy").setIndicator(tabViewPrivacy).setContent(android.R.id.tabcontent));
 
-        CustomTabContentView tabViewHist = new CustomTabContentView(this,getString(R.string.msgs_about_dlg_change_btn));
+        CustomTabContentView tabViewHist = new CustomTabContentView(mContext,getString(R.string.msgs_about_dlg_change_btn));
 		tab_host.addTab(tab_host.newTabSpec("change").setIndicator(tabViewHist).setContent(android.R.id.tabcontent));
 
         LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -4554,7 +4554,7 @@ public class ActivityMain extends AppCompatActivity {
         privacy_view.loadUrl("File:///android_asset/"+getString(R.string.msgs_dlg_title_about_privacy_desc));
         privacy_view.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
-		final CustomViewPagerAdapter adapter=new CustomViewPagerAdapter(this,
+		final CustomViewPagerAdapter adapter=new CustomViewPagerAdapter(mActivity,
 	    		new WebView[]{func_view, privacy_view, change_view});
 		final CustomViewPager mAboutViewPager=(CustomViewPager)dialog.findViewById(R.id.about_view_pager);
 //	    mMainViewPager.setBackgroundColor(mThemeColorList.window_color_background);
