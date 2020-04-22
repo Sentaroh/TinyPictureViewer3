@@ -3895,13 +3895,16 @@ public class ActivityMain extends AppCompatActivity {
 					//Remove folder and mark update required
 					ArrayList<FolderListItem> del_folder_list=new ArrayList<FolderListItem>();
 					for(FolderListItem fli:mGp.masterFolderList) {
-						SafFile3 s_key=new SafFile3(mContext, Uri.parse(fli.getParentDirectoryUriString()));
-						int idx=Collections.binarySearch(scan_dir_list, s_key, new Comparator<SafFile3>(){
-							@Override
-							public int compare(SafFile3 o1, SafFile3 s_key) {
-								return o1.getPath().compareToIgnoreCase(s_key.getPath());
-							}
-						});
+                        int idx=-1;
+					    if (fli.getParentDirectoryUriString()!=null && fli.getParentDirectoryUriString().length()>0) {
+                            SafFile3 s_key=new SafFile3(mContext, Uri.parse(fli.getParentDirectoryUriString()));
+                            idx=Collections.binarySearch(scan_dir_list, s_key, new Comparator<SafFile3>(){
+                                @Override
+                                public int compare(SafFile3 o1, SafFile3 s_key) {
+                                    return o1.getPath().compareToIgnoreCase(s_key.getPath());
+                                }
+                            });
+                        }
 						if (idx>=0) {
 							SafFile3 spfi=scan_dir_list.get(idx);
 							if (fli.getFileLastModified()!=spfi.lastModified()) {
