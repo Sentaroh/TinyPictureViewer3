@@ -137,7 +137,6 @@ public class PictureUtil {
 			@Override
 			public void run() {
 //				long b_time=System.currentTimeMillis();
-//				Log.v("","non exists SafFile3="+(System.currentTimeMillis()-b_time));
 				File df=new File(cd);
 				File[] cf_list=df.listFiles();
 				if (cf_list!=null && cf_list.length>0) {
@@ -151,13 +150,11 @@ public class PictureUtil {
 									ch_file.delete();
 									File del_file=new File(ch_file.getPath().substring(0,ch_file.getPath().lastIndexOf(".")));
 									del_file.delete();
-//									Log.v("","bitmap cache SafFile3 deleted by housekeep request, name="+del_file.getPath());
 								}
 							}
 						}
 					}
 				}
-//				Log.v("","housekeep="+(System.currentTimeMillis()-b_time));
 			};
 		};
 		th.setName("cacheHousekeep");
@@ -175,7 +172,6 @@ public class PictureUtil {
 						ch_file.delete();
 //						SafFile3 del_file=new SafFile3(ch_file.getPath().substring(0,ch_file.getPath().lastIndexOf(".")));
 //						del_file.delete();
-//						Log.v("","bitmap cache SafFile3 deleted by clear request, name="+ch_file.getPath());
 					}
 				}
 			}
@@ -189,7 +185,6 @@ public class PictureUtil {
 		synchronized(gp.pictureFileCacheList) {
 			if (gp.pictureFileCacheList.size()>0) {
 				for(PictureFileCacheItem pfci:gp.pictureFileCacheList) {
-//					Log.v("","fp="+pic_file_path+"\n"+"c="+pfci.file_path);
 					if (pfci.file_path.equals(pic_file_path)) {
 						result=pfci;
 //			        	if (gp.settingDebugLevel>1) Log.v(APPLICATION_TAG,"Cache hit, name="+pic_file_path);
@@ -208,7 +203,6 @@ public class PictureUtil {
 		synchronized(gp.pictureFileCacheList) {
 			if (gp.pictureFileCacheList.size()>0) {
 				for(PictureFileCacheItem pfci:gp.pictureFileCacheList) {
-//					Log.v("","fp="+pic_file_path+"\n"+"c="+pfci.file_path);
 					if (pfci.file_path.equals(pic_file_path)) {
 						result=pfci;
 //			        	if (gp.settingDebugLevel>1) Log.v(APPLICATION_TAG,"Cache hit, name="+pic_file_path);
@@ -218,7 +212,6 @@ public class PictureUtil {
 				if (result!=null) {
 					gp.pictureFileCacheList.remove(result);
 					gp.pictureFileCacheList.add(0, result);
-//					Log.v("","cache hit");
 				}
 			}
 		}
@@ -231,10 +224,8 @@ public class PictureUtil {
 			PictureFileCacheItem c_pfci=getPictureFileCacheItemFromCache(gp, pfci.file_path);
 			if (c_pfci==null) {
 				gp.pictureFileCacheList.add(0, pfci);
-//				if (gp.settingDebugLevel>1) Log.v(APPLICATION_TAG,"Cache added, name="+createBitmapCacheFilePath(gp, pfci.file_path));
 				if (gp.pictureFileCacheList.size()>MAX_CACHE_SIZE) {
 					gp.pictureFileCacheList.remove(MAX_CACHE_SIZE);
-//					if (gp.settingDebugLevel>1) Log.v(APPLICATION_TAG,"Cache remove, pos="+MAX_CACHE_SIZE);
 				}
 			} else {
 				c_pfci.bitmap_byte_array=pfci.bitmap_byte_array;
@@ -330,7 +321,6 @@ public class PictureUtil {
 		pfbmci.bitmap_byte_array=ba;
 		
 		addPictureFileCacheItemToCache(gp, pfbmci) ;
-//		Log.v("","cache added, name="+fp);
 
     	Thread save=new Thread() {
     		@Override
@@ -384,7 +374,6 @@ public class PictureUtil {
                 o_w=(int)((float)input_bitmap.getWidth()/scale);
                 o_h=(int)((float)input_bitmap.getHeight()/scale);
 
-//			Log.v("","s_w="+scale_width+", s_h="+scale_height+", scale="+scale+", o_w="+o_w+", o_h="+o_h);
                 Bitmap output_bitmap=null;
                 if (scale!=1.0f) {
                     output_bitmap= Bitmap.createScaledBitmap(input_bitmap, o_w, o_h, true);
@@ -426,131 +415,6 @@ public class PictureUtil {
 		else return 1.0f;
     };
     
-//	final static private Bitmap loadBitmapFromFile(final GlobalParameters gp, boolean pre_fetch,
-//			final String fp, DisplayMetrics disp_metrics, String orientation) {
-//    	long b_time=System.currentTimeMillis();
-//    	byte[] image_file_byte_array=PictureUtil.createImageByteArray(fp);
-//		BitmapFactory.Options options = new BitmapFactory.Options();  
-//    	if (image_file_byte_array.length>1024*1024*10) {
-////        	options.inPreferredConfig = Bitmap.Config.RGB_565;
-//    		options.inSampleSize=2;
-//    	}
-//		Bitmap input_bitmap=BitmapFactory.decodeByteArray(image_file_byte_array, 0, image_file_byte_array.length, options);
-//		long decoded_time=System.currentTimeMillis()-b_time;
-////		float base_disp=Math.max(disp_metrics.heightPixels, disp_metrics.widthPixels);
-//		
-////		float scale_width=(float)input_bitmap.getWidth()/(float)base_disp;
-////		float scale_height=(float)input_bitmap.getHeight()/(float)base_disp;
-////		float init_scale=Math.min(scale_height, scale_width);
-//		
-//		@SuppressWarnings("unused")
-//		int d_h=0, d_w=0;
-//		if (disp_metrics.widthPixels>disp_metrics.heightPixels) {
-//			//Landscape
-//			d_h=disp_metrics.heightPixels;
-//			d_w=disp_metrics.widthPixels;
-//		} else {
-//			//Portrait
-//			d_w=disp_metrics.heightPixels;
-//			d_h=disp_metrics.widthPixels;
-//		}
-//		
-//		float scale_width=(float)input_bitmap.getWidth()/(float)d_w;
-//		if (orientation.equals(PictureListItem.EXIF_IMAGE_ORIENTATION_CLOCKWISE_270) || 
-//				orientation.equals(PictureListItem.EXIF_IMAGE_ORIENTATION_CLOCKWISE_90) ||
-//				orientation.equals(PictureListItem.EXIF_IMAGE_ORIENTATION_CLOCKWISE_90_AND_FLIP_HORIZONTAL) ||
-//				orientation.equals(PictureListItem.EXIF_IMAGE_ORIENTATION_CLOCKWISE_270_AND_FLIP_HORIZONTAL) ) {
-//			scale_width=(float)input_bitmap.getHeight()/(float)d_w;
-//		}
-////		float scale_height=(float)input_bitmap.getHeight()/(float)d_h;
-//		float init_scale=1.0f;//scale_width;//Math.min(scale_height, scale_width);
-//
-//		float scale=getFitImageSize(init_scale, input_bitmap);
-//		
-//		int o_h=0, o_w=0;
-//		o_w=(int)((float)input_bitmap.getWidth()/scale);
-//		o_h=(int)((float)input_bitmap.getHeight()/scale);
-//		
-////		Log.v("","s_w="+scale_width+", s_h="+scale_height+", scale="+scale+", o_w="+o_w+", o_h="+o_h);
-//		Bitmap output_bitmap=null;
-//		if (scale!=1.0f) output_bitmap=Bitmap.createScaledBitmap(input_bitmap, o_w, o_h, true);
-//		else output_bitmap=input_bitmap;
-//    	if (gp.settingDebugLevel>1)  
-//    		Log.v(APPLICATION_TAG,"Bitmap created from SafFile3"+
-//    			", Display height="+disp_metrics.heightPixels+", width="+disp_metrics.widthPixels+//", base="+base_disp+
-//    			", Original Bitmap height="+options.outHeight*options.inSampleSize+
-//    			", width="+options.outWidth*options.inSampleSize+
-//    			", size="+input_bitmap.getByteCount()+
-//    			", Initial scale="+init_scale+
-//    			", Adjusted scale="+scale+
-//    			", Resized Bitmap height="+output_bitmap.getHeight()+", width="+output_bitmap.getWidth()+", size="+output_bitmap.getByteCount()+
-//    			", Decode time="+decoded_time+
-//    			", Elapsed time="+(System.currentTimeMillis()-b_time)+
-//    			", fp="+fp);
-//		return output_bitmap;
-//    };
-//
-//    private static float getFitImageSize(float scale, Bitmap o_bm) {
-//    	if (scale<1.0) return 1.0f;
-//		int o_h=0, o_w=0;
-//		o_w=(int)((float)o_bm.getWidth()/scale);
-//		o_h=(int)((float)o_bm.getHeight()/scale);
-//		if (o_h>2048 || o_w>2048) {
-//			scale=getFitImageSize(scale+0.1f, o_bm);
-//		}
-//		return scale;
-//    };
-
-//	final static private Bitmap loadBitmapFromFilex(final GlobalParameters gp, final String fp, DisplayMetrics disp_metrics) {
-//    	long b_time=System.currentTimeMillis();
-//    	Bitmap bitmap=null;
-//    	byte[] image_file_byte_array=PictureUtil.createImageByteArray(fp);
-//		BitmapFactory.Options options = new BitmapFactory.Options();  
-//		options.inJustDecodeBounds = true;
-//		BitmapFactory.decodeByteArray(image_file_byte_array, 0, image_file_byte_array.length, options);
-//		int d_h=0, d_w=0;
-//		d_h=disp_metrics.heightPixels;
-//		d_w=disp_metrics.widthPixels;
-//		int scale=0;
-//			
-//		scale=calculateInSampleSize(options, d_w, d_h);
-//		
-//		BitmapFactory.Options n_options = new BitmapFactory.Options();  
-//		n_options.inSampleSize=scale;
-//		bitmap = BitmapFactory.decodeByteArray(image_file_byte_array, 0, image_file_byte_array.length, n_options);
-//		if (bitmap.getHeight()>=2048 || bitmap.getWidth()>=2048) {
-//			if (gp.settingDebugLevel>1) Log.v(APPLICATION_TAG,"Bitmap max size reached, scale value increaed");
-//			n_options.inSampleSize=scale+1;
-//			bitmap.recycle();
-//			bitmap = BitmapFactory.decodeByteArray(image_file_byte_array, 0, image_file_byte_array.length, n_options);
-//		}
-//    	if (gp.settingDebugLevel>1)  
-//    		Log.v(APPLICATION_TAG,"Bitmap created, "+
-//    			"Display height="+d_h+", width="+d_w+
-//    			", Original Bitmap height="+options.outHeight+", width="+options.outWidth+
-//    			", Scale="+n_options.inSampleSize+
-//    			", Resized Bitmap height="+bitmap.getHeight()+", width="+bitmap.getWidth()+
-//    			", size="+bitmap.getByteCount()+
-//    			", elapsed time="+(System.currentTimeMillis()-b_time)+
-//    			", fp="+fp);
-//		return bitmap;
-//    };
-
-//    private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {  
-//        int inSampleSize = 1;  
-//        if (options.outHeight > reqHeight || options.outWidth > reqWidth) {  
-//        	float scale_height=((float)options.outHeight / (float)reqHeight);//+0.5f;//+0.99f;
-//        	float scale_width=((float)options.outWidth / (float)reqWidth);//+0.5f;//+0.99f;
-//        	
-//        	if (scale_height>scale_width) inSampleSize=(int)Math.floor(scale_height);
-//        	else inSampleSize=(int)Math.floor(scale_width);
-//        	
-////        	Log.v("","scale h="+scale_height+", w="+scale_width+", scale="+inSampleSize);
-//        }  
-//        	
-//        return inSampleSize;  
-//    };
-	
 	final static public String getFileExtention(String name) {
 		int per_pos=name.lastIndexOf(".");
 		if (per_pos > 0) {
@@ -982,7 +846,6 @@ public class PictureUtil {
 			fis.close();
 			bm_result=bm_file;
             log.debug("createImageByteArray result="+bm_result+", fp="+sf.getPath());
-//			Log.v("","elapsed="+(System.currentTimeMillis()-b_time)+", name="+fp);
 		} catch (Exception e) {
             log.debug("createImageByteArray error="+e.getMessage()+", fp="+sf.getPath());
 //			e.printStackTrace();
@@ -991,17 +854,6 @@ public class PictureUtil {
 	};
 	
 	final static public String createPictureInfo(Context c, PictureListItem pfli) {
-//       Geocoder gc=new Geocoder(c);
-//       String address="";
-//       try {
-//			List<Address> addr=gc.getFromLocation(pfli.getExifGpsLatitude(), pfli.getExifGpsLongitude(), 1);
-//			if (!addr.isEmpty()){
-//				address=addr.get(0).getAddressLine(1);
-//			}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-
 		String exif_image_info="";
 		
 		if (pfli.getExifImageHeight()!=0) {
@@ -1067,7 +919,6 @@ public class PictureUtil {
 			String xmp_rating=pfli.getExifXmpXmpRating().equals("")?"":
 				String.format(c.getString(R.string.msgs_main_exif_image_info_xmp_rating), pfli.getExifXmpXmpRating()).concat(", ");
 
-//			Log.v("","mk="+pfli.getExifMaker());
 			String no_of_shutter_released="";
 			no_of_shutter_released=pfli.getExifNumberOfShutterRelased()>0?
 					String.format(c.getString(R.string.msgs_main_exif_number_of_shutter_released), pfli.getExifNumberOfShutterRelased()).concat(", "):
@@ -1092,24 +943,9 @@ public class PictureUtil {
 	
 	public static String invokeWallPaperEditor(Context c, String pic_file_path) {
 		SafFile3 sf = new SafFile3(c, pic_file_path);
-//		ContentResolver cr = c.getContentResolver();
-//		ContentValues cv = new ContentValues();
-//		cv.put(MediaStore.Images.Media.TITLE, SafFile3.getName());
-//		cv.put(MediaStore.Images.Media.DISPLAY_NAME, SafFile3.getName());
-//		cv.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
-//		cv.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
-//		cv.put(MediaStore.Images.Media.DATA, SafFile3.getAbsolutePath());
-//		Uri uri = cr.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cv);
-		
 		String result="";
 		Intent intent = new Intent(Intent.ACTION_ATTACH_DATA);
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
-//        if (Build.VERSION.SDK_INT>=26) {
-//            Uri uri= FileProvider.getUriForFile(c, BuildConfig.APPLICATION_ID + ".provider", SafFile3);
-//            intent.setDataAndType(uri, "image/*");
-//        } else {
-//            intent.setDataAndType(Uri.fromFile(SafFile3), "image/*");
-//        }
         intent.setDataAndType(sf.getUri(), "image/*");
 	    try {
 		    c.startActivity(intent);
@@ -1117,7 +953,6 @@ public class PictureUtil {
 //	    	e.printStackTrace();
 	    	result=e.getMessage();
 	    }
-//	    Log.v("","msg="+result);
 	    return result;
 	};
 

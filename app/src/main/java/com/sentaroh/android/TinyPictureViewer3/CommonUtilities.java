@@ -361,12 +361,10 @@ public final class CommonUtilities {
 	};
 	static public void restoreSettingsParmFromFile(Context c, String dir, String fn) {
 		File lf=new File(dir+"/"+fn);
-//		Log.v("","path="+lf.getAbsolutePath()+", exists="+lf.exists());
 		if (lf.exists()) {
 			BufferedReader br;
 			try {
 				Editor prefs = getPrefMgr(c).edit();
-//				prefs.clear().commit();
 				br = new BufferedReader(new FileReader(lf),8192);
 				String pl;
 				pl=br.readLine();
@@ -377,15 +375,11 @@ public final class CommonUtilities {
 							byte[] enc_array=Base64Compat.decode(tmp_pl[2], Base64Compat.NO_WRAP);
 							String value=new String(enc_array);
 							prefs.putString(tmp_pl[0], value).commit();
-//							Log.v("","type="+tmp_pl[1]+", key="+tmp_pl[0]+", value="+value);
 						} else if (tmp_pl[1].equals(SETTING_PARMS_SAVE_LONG)) {
-//							Log.v("","type="+tmp_pl[1]+", key="+tmp_pl[0]+", value="+tmp_pl[2]);
 							prefs.putLong(tmp_pl[0], Long.parseLong(tmp_pl[2])).commit();
 						} else if (tmp_pl[1].equals(SETTING_PARMS_SAVE_INT)) {
-//							Log.v("","type="+tmp_pl[1]+", key="+tmp_pl[0]+", value="+tmp_pl[2]);
 							prefs.putInt(tmp_pl[0], Integer.parseInt(tmp_pl[2])).commit();
 						} else if (tmp_pl[1].equals(SETTING_PARMS_SAVE_BOOLEAN)) {
-//							Log.v("","type="+tmp_pl[1]+", key="+tmp_pl[0]+", value="+tmp_pl[2]);
 							if (tmp_pl[2].equals("true")) prefs.putBoolean(tmp_pl[0], true).commit();
 							else prefs.putBoolean(tmp_pl[0], false).commit();
 						}

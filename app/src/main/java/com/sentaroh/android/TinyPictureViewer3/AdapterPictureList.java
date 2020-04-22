@@ -282,11 +282,8 @@ public class AdapterPictureList extends PagerAdapter {
 	};
 	
     public void remove(CustomViewPager cvp, int position) {
-//    	Log.v("","remove started");
-//    	Log.v("","pl="+mPictureFileList.get(position).getFileName()+", al="+mPictureWorkList.get(position).image_file_name);
     	mPictureWorkList.remove(position);
     	notifyDataSetChanged();
-//    	Log.v("","remove ended");
     };
     
     @Override
@@ -301,7 +298,6 @@ public class AdapterPictureList extends PagerAdapter {
     			else if (i!=pos) result=i;
     		}
     	}
-//    	Log.v("","getItemPosition pos="+pos+", result="+result);
     	return result;
     };
     
@@ -315,11 +311,7 @@ public class AdapterPictureList extends PagerAdapter {
         	log.debug("destroyItem can not remove view pos="+position);
         }
     	String fp=(String)((View)object).getTag(R.string.app_name+1);
-//    	Log.v("","tag pos="+pos+", fp="+fp);
-//    	Log.v("","    pos="+position+", fp="+mPictureArray[position].image_file_path);
-//    	Log.v("","    civ="+mPictureArray[position].image_view.getBitMap());
-//    	Log.v("","    al="+mPictureArray.length);
-    	if (mPictureWorkList.size()>position && mPictureWorkList.get(position)!=null && 
+    	if (mPictureWorkList.size()>position && mPictureWorkList.get(position)!=null &&
     			mPictureWorkList.get(position).image_file_path.equals(fp)) {
     		mPictureWorkList.get(position).image_view.setImageBitmap(null);
     		System.gc();

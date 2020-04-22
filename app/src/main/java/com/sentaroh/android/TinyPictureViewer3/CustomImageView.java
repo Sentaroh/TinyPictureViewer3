@@ -144,9 +144,7 @@ public class CustomImageView extends ExtendImageViewTouch{
 	protected void zoomTo(float scale ) {
 		if (isZoomEnabled()) {
 			super.zoomTo(scale);
-//			Log.v("","setted scale="+scale);
 		} else {
-//			Log.v("","ignored scale="+scale);
 		}
 	};
 	

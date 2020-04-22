@@ -269,7 +269,6 @@ public class AdapterThumbnailList extends BaseAdapter {
 		holder.checkbox.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//				Log.v("","p="+p+", ch="+isChecked);
 				if (p<getCount()) {
 					getItem(p).setSelected(isChecked);
 					if (mCheckedChangeNotify!=null) mCheckedChangeNotify.notifyToListener(true, new Object[]{isChecked});

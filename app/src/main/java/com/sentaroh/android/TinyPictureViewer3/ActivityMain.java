@@ -2012,7 +2012,6 @@ public class ActivityMain extends AppCompatActivity {
 				if (s.length()>0) {
 					String n_path=fli.getParentDirectory().replace(fli.getFolderName(), "")+s.toString();
 					SafFile3 lf=new SafFile3(mContext, n_path);
-//					Log.v("","fp="+lf.getPath());
 					if (lf.exists()) {
 						btnOk.setEnabled(false);
 						dlg_msg.setText(mContext.getString(R.string.msgs_single_item_input_dlg_duplicate_dir));
@@ -2030,8 +2029,6 @@ public class ActivityMain extends AppCompatActivity {
 			public void onClick(View v) {
 				final String new_name=fli.getParentDirectory().replace(fli.getFolderName(), "")+etDir.getText().toString();
 				final String current_name=fli.getParentDirectory();
-//				NotifyEvent
-//				Log.v("","new name="+new_name+", current name="+current_name);
 				final ThreadCtrl tc=new ThreadCtrl();
 				NotifyEvent ntfy_cancel=new NotifyEvent(mContext);
 				ntfy_cancel.setListener(new NotifyEventListener(){
@@ -2158,7 +2155,6 @@ public class ActivityMain extends AppCompatActivity {
 									SafFile3 sf=new SafFile3(mContext, pli.getParentDirectory()+"/"+pli.getFileName());
 									rc_delete=sf.deleteIfExists();
 									PictureUtil.removeBitmapCacheFile(mGp, pli.getParentDirectory()+"/"+pli.getFileName());
-//									Log.v("","del="+cf.getAbsolutePath());
 									if (!rc_delete) {
 										mCommonDlg.showCommonDialog(false, "I",
 												String.format(mContext.getString(R.string.msgs_main_file_delete_file_was_failed),pli.getFileName()),
@@ -2291,7 +2287,6 @@ public class ActivityMain extends AppCompatActivity {
         sfi.folder_path=folder_path;
         sfi.process_sub_directories=process_sub_directories;
         sfi.include=select_include;
-//		Log.v("","c="+getScanFolderItem(sfi.folder_path));
         if (getScanFolderItem(sfl, sfi.folder_path)!=null)
             sfl.remove(getScanFolderItem(sfl, sfi.folder_path));
         sfl.add(sfi);
@@ -3072,7 +3067,6 @@ public class ActivityMain extends AppCompatActivity {
 				if (s.length()>0) {
 					String n_path=pli.getParentDirectory()+"/"+s.toString();
 					SafFile3 lf=new SafFile3(mContext, n_path);
-//					Log.v("","fp="+lf.getPath());
 					if (lf.exists()) {
 						btnOk.setEnabled(false);
 						dlg_msg.setText(mContext.getString(R.string.msgs_single_item_input_dlg_duplicate_dir));
@@ -3193,7 +3187,6 @@ public class ActivityMain extends AppCompatActivity {
                 if (s.length()>0) {
                     String n_path=pli.getParentDirectory()+"/"+s.toString();
                     SafFile3 lf=new SafFile3(mContext, n_path);
-//					Log.v("","fp="+lf.getPath());
                     if (lf.exists()) {
                         btnOk.setEnabled(false);
                         dlg_msg.setText(mContext.getString(R.string.msgs_single_item_input_dlg_duplicate_dir));
@@ -3212,8 +3205,6 @@ public class ActivityMain extends AppCompatActivity {
                 final String new_file_name=etDir.getText().toString()+pli.getFileName().substring(pli.getFileName().lastIndexOf("."));
                 final String new_name=pli.getParentDirectory()+"/"+new_file_name;
                 final String current_name=pli.getParentDirectory()+"/"+pli.getFileName();
-//				NotifyEvent
-//				Log.v("","new name="+new_name+", current name="+current_name);
                 NotifyEvent ntfy=new NotifyEvent(mContext);
                 ntfy.setListener(new NotifyEventListener(){
                     @Override
@@ -3975,7 +3966,6 @@ public class ActivityMain extends AppCompatActivity {
 									setFolderViewContextButtonVisibility();
 
 									if (mGp.currentView==CURRENT_VIEW_THUMBNAIL || mGp.currentView==CURRENT_VIEW_PICTURE) {
-//										Log.v("","cfli="+mGp.mCurrentFolderListItem.getParentDirectory()+", fli="+fli.getParentDirectory());
 										if (mGp.currentFolderListItem.getParentDirectory().equals(fli.getParentDirectory())) {
 											createThumbnailPictureInfo(fli, pic_list);
 											mGp.currentPictureList=pic_list;
@@ -4033,7 +4023,6 @@ public class ActivityMain extends AppCompatActivity {
 				return item;
 			}
 		}
-//		Log.v("","getPictureFileListItem elapsed="+(System.currentTimeMillis()-b_time));
 		return null;
 	};
 
@@ -4052,7 +4041,6 @@ public class ActivityMain extends AppCompatActivity {
 	private FolderListItem getFolderListItem(String folder_path) {
 		FolderListItem fli=null;
 		for(FolderListItem w_fli:mGp.masterFolderList) {
-//			Log.v("","fli n="+w_fli.getParentDirectory()+", fp="+folder_path);
 			if (w_fli.getParentDirectory().equals(folder_path)) {
 				fli=w_fli;
 				break;
@@ -4064,7 +4052,6 @@ public class ActivityMain extends AppCompatActivity {
 	private ArrayList<PictureListItem> getPictureList(FolderListItem fli) {
 		ArrayList<PictureListItem> pic_list=loadPictureList(createPictureListCacheFilePath(fli));
 		AdapterThumbnailList.sort(pic_list, fli.getSortKey(), fli.getSortOrder());
-//		Log.v("","key="+fli.getSortKey()+", order="+fli.getSortOrder());
 		return pic_list;
 	};
 
@@ -4423,9 +4410,6 @@ public class ActivityMain extends AppCompatActivity {
                                 } else {
                                     p_ntfy.notifyToListener(true, new Object[]{uuid});
                                 }
-//                                        mGp.syncTaskAdapter.notifyDataSetChanged();
-
-//                                setSpinnerSyncFolderStorageSelector(sti, sp_sync_folder_local_storage_selector, sfev.folder_storage_uuid, !sfev.folder_master);
                             }
                         } else {
                             NotifyEvent ntfy_deny = new NotifyEvent(mContext);

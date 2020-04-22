@@ -108,7 +108,6 @@ class CustomViewPager extends ViewPager {//OverScrollEffectViewPager {
 
         @Override
         public void startScroll(int startX, int startY, int dx, int dy, int duration) {
-//            Log.v("","duraton="+duration);
             int new_duration=duration;
             if (isUseFastScroll()) {
                 new_duration=0;
@@ -122,14 +121,6 @@ class CustomViewPager extends ViewPager {//OverScrollEffectViewPager {
 			setPageTransformer(false, new ViewPager.PageTransformer() {
 			    @Override
 			    public void transformPage(View page, float position) {
-//			    	final float normalizedposition = Math.abs(Math.abs(position) - 1);
-//		
-//			    	page.setAlpha(normalizedposition);
-//			        
-//			        page.setScaleX(normalizedposition / 2 + 0.5f);
-//			        page.setScaleY(normalizedposition / 2 + 0.5f);
-//			        
-//			    	page.setRotationY(position * -30);
 			    	float alpha = 0;
 			        @SuppressWarnings("unused")
 					int pageWidth = page.getWidth();
@@ -142,7 +133,6 @@ class CustomViewPager extends ViewPager {//OverScrollEffectViewPager {
 			        }
 			        page.setAlpha(alpha);
 			        // 逆方向に移動させることで位置を固定する
-//			        page.setTranslationX(pageWidth * -position);
 			        page.setRotationY(position * -30);
 			    } 
 			});

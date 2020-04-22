@@ -197,8 +197,7 @@ public class PictureView {
 
 		mActivity.setBackLightLevelToMax();
 		mActivity.refreshOptionMenu();
-//		Log.v("","button="+mGp.mPictureViewShowNavigateButton+", info="+mPictureViewShowFileInfo);
-		
+
 		if (mGp.settingPictureDisplayLastUiMode==UI_MODE_FULL_SCREEN) {
 			mActivity.setUiFullScreen();
 		} else if (mGp.settingPictureDisplayLastUiMode==UI_MODE_FULL_SCREEN_WITH_NAVI) {
@@ -298,11 +297,9 @@ public class PictureView {
 		mGp.customViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
-//				Log.v("","onPageScrollStateChanged 0="+arg0);
 			}
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
-//				Log.v("","onPageScrolled 0="+arg0+", 1="+arg1+", 2="+arg2);
 			}
 			@Override
 			public void onPageSelected(final int pos) {
@@ -361,7 +358,6 @@ public class PictureView {
 		}
 		
 		PictureWorkItem pi=pa.get(mGp.customViewPager.getCurrentItem());
-//		Log.v("","scale="+pi.image_view.getScale()+", max="+pi.image_view.getMaxScale());
 		if (pi.image_view.getMaxScale()<=pi.image_view.getScale()) {
 //			mPictureZoomInBtn.setVisibility(ImageButton.INVISIBLE);
 			mGp.pictureZoomInBtn.setAlpha(0.2f);
