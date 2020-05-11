@@ -25,11 +25,13 @@ OTHER DEALINGS IN THE SOFTWARE.
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.util.DisplayMetrics;
 
 import com.sentaroh.android.Utilities3.Preference.CustomDialogPreference;
 import com.sentaroh.android.Utilities3.Preference.CustomDialogPreference.CustomDialogPreferenceButtonListener;
@@ -39,6 +41,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.List;
+import java.util.Locale;
 
 public class ActivitySettings extends PreferenceActivity {
     private static Logger log= LoggerFactory.getLogger(ActivitySettings.class);
@@ -46,7 +49,7 @@ public class ActivitySettings extends PreferenceActivity {
 	private static GlobalParameters mGp=null;
 	
 	private CommonUtilities mUtil=null;
-	
+
 //	private GlobalParameters mGp=null;
 	
     @Override
@@ -82,14 +85,37 @@ public class ActivitySettings extends PreferenceActivity {
         loadHeadersFromResource(R.xml.settings_frag, target);
     };
 
+    private Context mContext=null;
+
     @Override
     public boolean onIsMultiPane () {
+        mContext=ActivitySettings.this.getApplicationContext();
     	mGp=GlobalWorkArea.getGlobalParameters(getApplicationContext());
 //    	mPrefActivity=this;
     	mUtil=new CommonUtilities(this, "SettingsActivity", mGp);
     	mUtil.addDebugMsg(1, "I", CommonUtilities.getExecutedMethodName()+" entered");
-        return true;
+        return isTablet(this, mUtil);
     };
+
+    public static boolean isTablet(Context context, CommonUtilities cu) {
+        int multiPaneDP=540;
+        String lang_code=Locale.getDefault().getLanguage();
+        if (lang_code.equals("en")) multiPaneDP=500;
+        else if (lang_code.equals("fr")) multiPaneDP=540;
+        else if (lang_code.equals("ja")) multiPaneDP=500;
+        else if (lang_code.equals("ru")) multiPaneDP=1000;
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        final float x_px = (float) Math.min(metrics.heightPixels, metrics.widthPixels);
+        final float y_px = (float) Math.max(metrics.heightPixels, metrics.widthPixels);
+        boolean portrait_mp = (x_px/metrics.density) >= multiPaneDP;
+        boolean land_mp = (y_px/metrics.density) >= multiPaneDP;
+
+        int orientation = context.getResources().getConfiguration().orientation;
+        boolean sc_land_mp = land_mp && orientation == Configuration.ORIENTATION_LANDSCAPE; //screen is in landscape orientation and width size >= multiPaneDP
+//        cu.addDebugMsg(1, "I", "orientation="+orientation+", density="+metrics.density+", x_dpi="+metrics.xdpi+", y_dpi="+metrics.ydpi+
+//                ", densityDpi="+metrics.densityDpi+", heightPixels="+metrics.heightPixels+", widthPixels="+metrics.widthPixels+", sz_mp="+sz_mp+", sc_or="+sc_or);
+        return portrait_mp||sc_land_mp; //use MultiPane display in portrait if width >= multiPaneDP or in landscape if largest screen side >= multiPaneDP
+    }
 
 	@Override  
 	protected void onPause() {  
