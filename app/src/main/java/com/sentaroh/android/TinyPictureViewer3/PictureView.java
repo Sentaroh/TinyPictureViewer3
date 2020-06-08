@@ -729,6 +729,7 @@ public class PictureView {
             public boolean onLongClick(View view) {
                 Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_delete_picture), Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
+//                CommonUtilities.positionToast(toast, view, mActivity.getWindow(), 0, 0);
                 toast.show();
                 return true;
             }
