@@ -1354,7 +1354,16 @@ public class ActivityMain extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT>=SCOPED_STORAGE_SDK) intent=svi.volume.createOpenDocumentTreeIntent();
                 else if (Build.VERSION.SDK_INT>=29) intent=svi.volume.createOpenDocumentTreeIntent();
                 else intent=svi.volume.createAccessIntent(null);
-                startActivityForResult(intent, request_code);
+                if (intent==null) {
+                    mCommonDlg.showCommonDialog(false, "E", "RequestStoragePermission error", "Intent creation error", null);
+                } else {
+                    try {
+                        startActivityForResult(intent, request_code);
+                    } catch(Exception e) {
+                        e.printStackTrace();
+                        mCommonDlg.showCommonDialog(false, "E", "RequestStoragePermission error", "Storage select activity start error="+e.getMessage(), null);
+                    }
+                }
                 break;
             }
         }
