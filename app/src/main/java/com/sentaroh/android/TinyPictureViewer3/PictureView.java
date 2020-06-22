@@ -23,6 +23,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 */
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -386,9 +387,7 @@ public class PictureView {
         mGp.picturePrevBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-				Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_show_previous), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-				toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_show_previous), 3);
                 return true;
             }
         });
@@ -402,9 +401,7 @@ public class PictureView {
         mGp.pictureNextBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_show_next), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_show_next), 3);
                 return true;
             }
         });
@@ -418,9 +415,7 @@ public class PictureView {
         mGp.pictureZoomInBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_zoom_in), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_zoom_in), 3);
                 return true;
             }
         });
@@ -451,9 +446,7 @@ public class PictureView {
         mGp.pictureZoomOutBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_zoom_out), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_zoom_out), 3);
                 return true;
             }
         });
@@ -483,9 +476,7 @@ public class PictureView {
         mGp.pictureRotatePictureLeftBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_rotate_left), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_rotate_left), 3);
                 return true;
             }
         });
@@ -500,9 +491,7 @@ public class PictureView {
         mGp.pictureRotatePictureRightBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_rotate_right), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_rotate_right), 3);
                 return true;
             }
         });
@@ -517,9 +506,7 @@ public class PictureView {
         mGp.pictureLockZoomBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_lock_zoom_and_pos), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_lock_zoom_and_pos), 3);
                 return true;
             }
         });
@@ -550,9 +537,7 @@ public class PictureView {
         mGp.pictureLockScreenRotationBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_lock_phone_orientation), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_lock_phone_orientation), 3);
                 return true;
             }
         });
@@ -579,9 +564,7 @@ public class PictureView {
         mGp.pictureResetBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_revert), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_revert), 3);
                 return true;
             }
         });
@@ -638,9 +621,7 @@ public class PictureView {
         mGp.pictureShareBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_share_picture), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_share_picture), 3);
                 return true;
             }
         });
@@ -658,9 +639,7 @@ public class PictureView {
         mGp.pictureWallpaperBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_wall_paper), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_wall_paper), 3);
                 return true;
             }
         });
@@ -676,9 +655,7 @@ public class PictureView {
         mGp.pictureShowMapBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_show_maps), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_show_maps), 3);
                 return true;
             }
         });
@@ -727,10 +704,7 @@ public class PictureView {
         mGp.pictureDeleteBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.msgs_main_oper_label_delete_picture), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-//                CommonUtilities.positionToast(toast, view, mActivity.getWindow(), 0, 0);
-                toast.show();
+                CommonDialog.showPopupMessageAsDownAnchorView(mActivity,  mGp.pictureDeleteBtn, mContext.getString(R.string.msgs_main_oper_label_delete_picture), 3);
                 return true;
             }
         });
