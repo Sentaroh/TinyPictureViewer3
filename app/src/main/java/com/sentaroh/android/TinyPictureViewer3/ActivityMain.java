@@ -134,7 +134,6 @@ import java.util.Comparator;
 
 import static com.sentaroh.android.TinyPictureViewer3.Constants.*;
 import static com.sentaroh.android.Utilities3.SafFile3.SAF_FILE_PRIMARY_UUID;
-import static com.sentaroh.android.Utilities3.SafManager3.SCOPED_STORAGE_SDK;
 
 public class ActivityMain extends AppCompatActivity {
 	private GlobalParameters mGp=null;
@@ -378,16 +377,9 @@ public class ActivityMain extends AppCompatActivity {
             @Override
             public void negativeResponse(Context context, Object[] objects) { }
         });
-        if (Build.VERSION.SDK_INT>=SCOPED_STORAGE_SDK) {
-            if (isPrimaryStorageAccessGranted()) ntfy_resume.notifyToListener(true, null);
-            else {
-                if (mStoragePermissionPrimaryListener ==null) checkInternalStoragePermission(ntfy_resume);
-            }
-        } else {
-            if (isLegacyStorageAccessGranted()) ntfy_resume.notifyToListener(true, null);
-            else {
-                if (mStoragePermissionPrimaryListener ==null) checkLegacyStoragePermissions(ntfy_resume);
-            }
+        if (isLegacyStorageAccessGranted()) ntfy_resume.notifyToListener(true, null);
+        else {
+            if (mStoragePermissionPrimaryListener ==null) checkLegacyStoragePermissions(ntfy_resume);
         }
 	};
 
@@ -1351,8 +1343,7 @@ public class ActivityMain extends AppCompatActivity {
         ArrayList<SafManager3.StorageVolumeInfo>vol_list=SafManager3.getStorageVolumeInfo(mContext);
         for(SafManager3.StorageVolumeInfo svi:vol_list) {
             if (svi.uuid.equals(uuid)) {
-                if (Build.VERSION.SDK_INT>=SCOPED_STORAGE_SDK) intent=svi.volume.createOpenDocumentTreeIntent();
-                else if (Build.VERSION.SDK_INT>=29) intent=svi.volume.createOpenDocumentTreeIntent();
+                if (Build.VERSION.SDK_INT>=29) intent=svi.volume.createOpenDocumentTreeIntent();
                 else intent=svi.volume.createAccessIntent(null);
                 if (intent==null) {
                     mCommonDlg.showCommonDialog(false, "E", "RequestStoragePermission error", "Intent creation error", null);
@@ -3602,42 +3593,24 @@ public class ActivityMain extends AppCompatActivity {
             ContentProviderClient cpc=null;
 			for(ScanFolderItem item:gp.settingScanDirectoryList) {
 				if (item.include) {
-				    if (Build.VERSION.SDK_INT>=SCOPED_STORAGE_SDK) {
-                        SafFile3 bf=new SafFile3(mContext, item.folder_path);
-                        cpc=bf.getContentProviderClient();
-                        if (cpc!=null) {
-                            if (bf.exists(cpc)) {
-                                try {
-                                    PictureUtil.getAllPictureDirectoryInDirectory(gp, esfl, bf, item.process_sub_directories, cpc);
-                                } finally {
-                                    if (cpc!=null) cpc.release();
+                    File lf=new File(item.folder_path);
+                    SafFile3 bf=new SafFile3(mContext, item.folder_path);
+                    if (bf.getUuid().equals(SafFile3.SAF_FILE_PRIMARY_UUID) ||
+                            (!bf.getUuid().equals(SafFile3.SAF_FILE_PRIMARY_UUID) && gp.safMgr.isUuidRegistered(bf.getUuid()))) {
+                        if (lf.canRead()) PictureUtil.getFileApiAllPictureDirectoryInDirectory(gp, esfl, lf, item.process_sub_directories);
+                        else {
+                            cpc=bf.getContentProviderClient();
+                            if (cpc!=null) {
+                                if (bf.exists(cpc)) {
+                                    try {
+                                        PictureUtil.getAllPictureDirectoryInDirectory(gp, esfl, bf, item.process_sub_directories, cpc);
+                                    } finally {
+                                        if (cpc!=null) cpc.release();
+                                    }
                                 }
-                            }
-                        } else {
-                            if (bf.exists()) {
-                                PictureUtil.getAllPictureDirectoryInDirectory(gp, esfl, bf, item.process_sub_directories);
-                            }
-                        }
-                    } else {
-                        File lf=new File(item.folder_path);
-                        SafFile3 bf=new SafFile3(mContext, item.folder_path);
-                        if (bf.getUuid().equals(SafFile3.SAF_FILE_PRIMARY_UUID) ||
-                                (!bf.getUuid().equals(SafFile3.SAF_FILE_PRIMARY_UUID) && gp.safMgr.isUuidRegistered(bf.getUuid()))) {
-                            if (lf.canRead()) PictureUtil.getFileApiAllPictureDirectoryInDirectory(gp, esfl, lf, item.process_sub_directories);
-                            else {
-                                cpc=bf.getContentProviderClient();
-                                if (cpc!=null) {
-                                    if (bf.exists(cpc)) {
-                                        try {
-                                            PictureUtil.getAllPictureDirectoryInDirectory(gp, esfl, bf, item.process_sub_directories, cpc);
-                                        } finally {
-                                            if (cpc!=null) cpc.release();
-                                        }
-                                    }
-                                } else {
-                                    if (bf.exists()) {
-                                        PictureUtil.getAllPictureDirectoryInDirectory(gp, esfl, bf, item.process_sub_directories);
-                                    }
+                            } else {
+                                if (bf.exists()) {
+                                    PictureUtil.getAllPictureDirectoryInDirectory(gp, esfl, bf, item.process_sub_directories);
                                 }
                             }
                         }
