@@ -4479,7 +4479,7 @@ public class ActivityMain extends AppCompatActivity {
 
 
 	private void aboutApplicaion() {
-		final Dialog dialog = new Dialog(mActivity);
+		final Dialog dialog = new Dialog(mActivity, R.style.Main);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    dialog.setContentView(R.layout.about_dialog);
 
