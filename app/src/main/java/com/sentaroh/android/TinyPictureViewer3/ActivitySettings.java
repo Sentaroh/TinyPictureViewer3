@@ -180,11 +180,6 @@ public class ActivitySettings extends PreferenceActivity {
             Preference pref_key=findPreference(key_string);
             if (key_string.equals(c.getString(R.string.settings_exit_clean))) {
                 isChecked=true;
-                if (shared_pref.getBoolean(key_string, true)) {
-                    pref_key.setSummary(c.getString(R.string.settings_exit_clean_summary_ena));
-                } else {
-                    pref_key.setSummary(c.getString(R.string.settings_exit_clean_summary_dis));
-                }
             }
             return isChecked;
         };

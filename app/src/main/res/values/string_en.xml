@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <!-- About -->
+        <string name="msgs_about_dlg_func_btn">Function</string>
+        <string name="msgs_about_dlg_change_btn">Change log</string>
+        <string name="msgs_about_dlg_privacy_btn">Privacy</string>
+        <string name="msgs_dlg_title_about">TinyPictureViewer3</string>
+        <string name="msgs_dlg_title_about_func_desc">TinyPictureViewer3_Desc_EN_Short.htm</string>
+        <string name="msgs_dlg_title_about_change_desc">TinyPictureViewer3_Change_EN.htm</string>
+        <string name="msgs_dlg_title_about_privacy_desc">TinyPictureViewer3_Privacy_EN.htm</string>
+    <!-- Log -->
+        <string name="msgs_log_management_title">Log management</string>
+        <string name="msgs_log_management_label_delete">Delete log item</string>
+        <string name="msgs_log_management_label_share">Share log item</string>
+        <string name="msgs_log_management_label_select_all">Select all log item</string>
+        <string name="msgs_log_management_label_unselect_all">Unselect all log item</string>
+        <string name="msgs_log_management_no_log_file">No log files</string>
+        <string name="msgs_log_management_delete_confirm_msg">Delete the following log files.</string>
+        <string name="msgs_log_management_dlg_close">Close</string>
+        <string name="msgs_log_management_dlg_send_zip_file_creating">Creating the zip file</string>
+        <string name="msgs_log_management_dlg_send_zip_file_cancelled">Zip file creation has been canceled</string>
+        <string name="msgs_log_management_log_file_switched">Log file was switched.</string>
+        <string name="msgs_log_management_enable_log_file_warning">The following data will be recorded in the log file by enabling it.\nAndroid version, Device name, Directory name, File name, System settings, App information</string>
+        <string name="msgs_log_management_send_log_file_warning">Send log file by E-Mail to the developer. The log file contains Android version, Device name, Directory name, File name, System settings and App information.\n1.Press the Preview button to see the temp_log.txt, then please check the contents.(If the selection screen of the application is displayed, and then select the FAVORIT application to display the text file.)\n2.When you are finished reading file to send, then select the E-Mail in EMail selection dialog.\n3.Please enter a problem/question in the E-Mail body and send an E-Mail.(The log file is attached with compressed into zip and )</string>
+    <!-- Main -->
+        <string name="msgs_main_restart_by_killed">Application was restarted, because application is killed after the move to the background in last time.</string>
+        <string name="msgs_main_restart_by_destroyed">Application was restarted because destroyed of the activity is requested.　Please disable it if you’re to enable the “Don’t keep activities” in the Settings->developer options.</string>
+        <string name="msgs_main_exit_confirm_msg">Do you want to terminate application.</string>
+        <string name="msgs_main_kill_confirm_msg">Do you want to kill the application.</string>
+        <string name="msgs_main_external_storage_select_required_title">Storage access permission</string>
+        <string name="msgs_main_external_storage_select_required_select_msg">In order to write the storage, Step 1 please tap the “SDCARD” or “USB”, Step2 then　Please tap the “Select” in the displayed screen.\n
+(Please tap the “Select” when the screen of “SDCARD” or “USB” in step2 is displayed directly in the upper left corner. If the upper left is other than “SDCARD” or “USB” are displayed, tap the upper left corner of the menu, from step 1 please try again.)</string>
+        <string name="msgs_main_external_storage_select_retry_select_msg">The root directory of the storage was not selected. Do you wants to re select?</string>
+        <string name="msgs_main_external_storage_select_deny_msg">Permission to access storage has been denied. You will not be able to view photos stored on the storage until you have been granted access to the storage.</string>
+        <string name="msgs_main_external_storage_required_select_msg_file">SMBSync_STORAGE_10.0_EN.png</string>
+        <string name="msgs_main_external_storage_notify_external_storage_available_title">External storage is available</string>
+        <string name="msgs_main_external_storage_notify_external_storage_available_msg">External storage can be used. You can add external storage with "Edit Picture Folder" in the menu. Do you want to Add external storage??</string>
+        <string name="msgs_main_external_storage_notify_external_storage_suppress_msg">Do not show this message. (Can be displayed in settings)</string>
+        <string name="msgs_main_permission_primary_storage_title">Internal storage permission</string>
+        <string name="msgs_main_permission_primary_storage_request_msg">Please give permission to access internal storage in order to read and write photos of internal storage and management data.</string>
+        <string name="msgs_main_permission_primary_storage_root_not_selected_msg">The root directory of the internal storage was not selected. Would you like to choose again?</string>
+        <string name="msgs_main_permission_primary_storage_denied_msg">Since permission to access internal storage is not given, it is impossible to read and write photos and management data, quit the application.</string>
+        <string name="msgs_main_exif_image_info_size">%sx%s</string>
+        <string name="msgs_main_exif_image_info_aperture">F=%s</string>
+        <string name="msgs_main_exif_image_info_exposure_time">SS=%s</string>
+        <string name="msgs_main_exif_image_info_exposure_bias">Exp bias=%s</string>
+        <string name="msgs_main_exif_image_info_focal_length">Focal length=%smm</string>
+        <string name="msgs_main_exif_image_info_iso">ISO=%s</string>
+        <string name="msgs_main_exif_image_info_date_time">%s</string>
+        <string name="msgs_main_exif_image_info_date_time_unknown">Unknown taken date</string>
+        <string name="msgs_main_picture_file_date_time_unknown">Unknown</string>
+        <string name="msgs_main_exif_image_info_exposure_mode_auto">Auto</string>
+        <string name="msgs_main_exif_image_info_exposure_mode_manual">Manual</string>
+        <string name="msgs_main_exif_image_info_exposure_mode_bracket">Bracket</string>
+        <string name="msgs_main_exif_image_info_exposure_program_manual">Manual</string>
+        <string name="msgs_main_exif_image_info_exposure_program_normal">Normal</string>
+        <string name="msgs_main_exif_image_info_exposure_program_aperture">Aperture priority</string>
+        <string name="msgs_main_exif_image_info_exposure_program_shutter">Shutter priority</string>
+        <string name="msgs_main_exif_image_info_exposure_program_creative">Creative</string>
+        <string name="msgs_main_exif_image_info_exposure_program_action">Action</string>
+        <string name="msgs_main_exif_image_info_exposure_program_portrait">Portrait</string>
+        <string name="msgs_main_exif_image_info_exposure_program_landscape">Landscape</string>
+        <string name="msgs_main_exif_image_info_dc_subject">Subject=[%s]</string>
+        <string name="msgs_main_exif_image_info_dc_description">Description=%s</string>
+        <string name="msgs_main_exif_image_info_dc_creator">Creator=%s</string>
+        <string name="msgs_main_exif_image_info_xmp_label">Label=%s</string>
+        <string name="msgs_main_exif_image_info_xmp_rating">Rating=%s</string>
+        <string name="msgs_main_exif_number_of_shutter_released">Shutter Relased=%s</string>
+        <string name="msgs_main_build_file_list_process_title">Create file list</string>
+        <string name="msgs_main_build_file_list_process_msg">Please wait.</string>
+        <string name="msgs_main_build_file_list_process_cancel">Cancel</string>
+        <string name="msgs_main_build_file_list_process_canceling">Canceling</string>
+        <string name="msgs_main_edit_scan_folder_title">Edit picture folder</string>
+        <string name="msgs_main_edit_scan_folder_deleted_directory">Deleted</string>
+        <string name="msgs_main_edit_scan_folder_to_delete_directory">To delete</string>
+        <string name="msgs_main_edit_scan_folder_ignored_folder">The following folder will be ignored for higher of the folder is excluded, including the sub-directory.</string>
+        <string name="msgs_main_edit_scan_folder_select_include">Include</string>
+        <string name="msgs_main_edit_scan_folder_select_exclude">Exclude</string>
+        <string name="msgs_main_edit_scan_folder_process_sub_directories">Scan sub directory</string>
+        <string name="msgs_main_edit_scan_folder_add_specific_dir">Add directory</string>
+        <string name="msgs_main_edit_scan_folder_request_storage_access_permission">Add storage</string>
+        <string name="msgs_main_cont_label_select_all">Select all</string>
+        <string name="msgs_main_cont_label_unselect_all">Unselect all</string>
+        <string name="msgs_main_cont_label_delete">Delete</string>
+        <string name="msgs_main_cont_label_rename">Rename</string>
+        <string name="msgs_main_cont_label_exclude">Exclude</string>
+        <string name="msgs_main_cont_label_share">Share</string>
+        <string name="msgs_main_cont_label_add">Add folder</string>
+        <string name="msgs_main_cont_label_copy">Copy</string>
+        <string name="msgs_main_cont_label_cut">Cut</string>
+        <string name="msgs_main_cont_label_paste">Paste</string>
+        <string name="msgs_main_oper_label_show_previous">Show previous image</string>
+        <string name="msgs_main_oper_label_show_next">Show next image</string>
+        <string name="msgs_main_oper_label_delete_picture">Delete this picture</string>
+        <string name="msgs_main_oper_label_show_maps">Invoke Map app</string>
+        <string name="msgs_main_oper_label_revert">Revert zoom and picture orientation</string>
+        <string name="msgs_main_oper_label_rotate_left">Rotate picture counterclockwise 90 degree</string>
+        <string name="msgs_main_oper_label_rotate_right">Rotate picture clockwise 90 degree</string>
+        <string name="msgs_main_oper_label_zoom_in">Zoom in</string>
+        <string name="msgs_main_oper_label_zoom_out">Zoom out</string>
+        <string name="msgs_main_oper_label_wall_paper">Invoke Wallpaper app</string>
+        <string name="msgs_main_oper_label_lock_zoom_and_pos">Lock/Unlock zoom and position</string>
+        <string name="msgs_main_oper_label_lock_phone_orientation">Lock/Unlock screen orientation</string>
+        <string name="msgs_main_oper_label_share_picture">Share this picture</string>
+        <string name="msgs_main_map_activity_not_found">Map app can not be found.</string>
+        <string name="msgs_main_file_rename_title">Rename</string>
+        <string name="msgs_main_file_rename_confirm_title">Do you want to rename following items?</string>
+        <string name="msgs_main_file_rename_completed">Renamed, Name=%s</string>
+        <string name="msgs_main_file_rename_failed">Rename failed, Name=%s</string>
+        <string name="msgs_main_file_rename_cancelled">Rename cancelled.</string>
+        <string name="msgs_main_file_update_media_store_information">Updating the media store information.</string>
+        <string name="msgs_main_file_delete_confirm_delete">Do you want to delete following items?</string>
+        <string name="msgs_main_file_delete_dialog_title">Deleting</string>
+        <string name="msgs_main_file_delete_file_was_deleted">%s was deleted.</string>
+        <string name="msgs_main_file_delete_file_was_failed">%s delete was failed.</string>
+        <string name="msgs_main_file_delete_file_was_cancelled">Delete was cancelled.</string>
+        <string name="msgs_main_file_delete_file_completed">Delete completed</string>
+        <string name="msgs_main_file_scan_confirm_scan">Do you want to media file scan?</string>
+        <string name="msgs_main_file_scan_dialog_title">While scanning.</string>
+        <string name="msgs_main_file_scan_please_wait">Please wait.</string>
+        <string name="msgs_main_file_scan_file_was_cancelled">Scan was cancelled.</string>
+        <string name="msgs_main_file_scan_file_completed">Scan was completed.</string>
+        <string name="msgs_main_file_copy_file_confirm_title">Do you want to copy following items？</string>
+        <string name="msgs_main_file_move_file_confirm_title">Do you want to move following items？</string>
+        <string name="msgs_main_file_cancel_btn">Cancel</string>
+        <string name="msgs_main_file_canceling_btn">Canceling</string>
+        <string name="msgs_main_file_copy_title">Copying</string>
+        <string name="msgs_main_file_copy_success">%s was successfully copied</string>
+        <string name="msgs_main_file_copy_fail">%s was copy failed</string>
+        <string name="msgs_main_file_copy_cancel">%s was copy cancelled</string>
+        <string name="msgs_main_file_move_title">Moving</string>
+        <string name="msgs_main_file_move_success">%s was successfully moved</string>
+        <string name="msgs_main_file_move_fail">%s was move failed</string>
+        <string name="msgs_main_file_move_cancel">%s was move cancelled</string>
+        <string name="msgs_main_file_copy_cut_clear_confirm">The following items have been copy/cut. Are you sure you want to clear?</string>
+        <string name="msgs_main_file_share_file_max_file_count_reached">The number of shared files that can be up to 100.</string>
+        <string name="msgs_main_exclude_folder_confirm">Do you want to exclude following items?</string>
+        <string name="msgs_main_recreate_cache_file_confirm">Do you wants to re-create all cache file？</string>
+        <string name="msgs_main_picture_screen_rotation_locked">Screen rotation was locked.</string>
+        <string name="msgs_main_picture_screen_rotation_unlocked">Screen rotation was unlocked.</string>
+        <string name="msgs_main_picture_zoom_locked">Zoom was locked.</string>
+        <string name="msgs_main_picture_zoom_unlocked">Zoom was unlocked.</string>
+        <string name="msgs_main_picture_reset_zoom_and_rotation">reset all pictures zoom and rotation.</string>
+        <string name="msgs_main_picture_cache_file_may_be_corrupted">The cache file may be corrupted. Please go to "Clear all cache" in the app settings.</string>
+        <string name="msgs_main_folder_view_title">%s Folders</string>
+        <string name="msgs_main_folder_view_no_of_pictures">%s Files</string>
+        <string name="msgs_main_folder_view_folder_selector_all_folder">All</string>
+        <string name="msgs_main_view_toolbar_folder_spinner_prompt">Select folder name prefix</string>
+        <string name="msgs_main_thumbnail_view_date_selector_all_picture">All</string>
+        <string name="msgs_main_thumbnail_view_empty_picture_file">No picture file</string>
+        <string name="msgs_main_view_toolbar_picture_spinner_prompt">Select photographing date</string>
+        <string name="msgs_main_sort_thumbnail_sort_key_name">By name</string>
+        <string name="msgs_main_sort_thumbnail_sort_key_picture_time">By Photographing date</string>
+        <string name="msgs_main_sort_thumbnail_sort_key_file_time">By File update time</string>
+        <string name="msgs_main_sort_thumbnail_set_sort_parm_all_folder">Apply the sort settings to all folders</string>
+        <string name="msgs_main_sort_thumbnail_set_sort_parm_confirm">Do you want to apply the current sort settings to all folders?</string>
+        <string name="msgs_main_sort_folder_sort_key_name">By Folder name</string>
+        <string name="msgs_main_sort_folder_sort_key_path">By Directory path</string>
+        <string name="msgs_main_sort_folder_sort_key_time">By Folder update time</string>
+        <string name="msgs_main_folder_list_add_title">Add folder</string>
+        <string name="msgs_main_hidden_directory_confirm_title">If set to “Do not show the hidden directory”, there is that the folder you are currently viewing will no longer be displayed. Do you want to continue?</string>
+        <string name="msgs_main_detect_file_change">Being detected the changeｄ files.</string>
+        <string name="msgs_main_backup_config_confirm_override">The saved file exists in %s. Do you want to overwrite it?</string>
+        <string name="msgs_main_backup_config_backup_completed">Configuration backup was completed.</string>
+        <string name="msgs_main_restore_config_file_not_found">Backup file was can not be found.</string>
+        <string name="msgs_main_restore_config_confirm_restore">The saved file exists in %s. Do you want to restore it?</string>
+        <string name="msgs_main_restore_config_restore_completed">Configuration restore was completed.</string>
+        <string name="msgs_main_backup_restore_config_backup_date">Last backup date:\n  %s</string>
+        <string name="msgs_main_backup_restore_config_no_backup_file">Backup file was can not be found.</string>
+        <string name="msgs_main_backup_restore_config_title">Backup/Restore configuration</string>
+        <string name="msgs_main_backup_restore_config_btn_backup">Backup</string>
+        <string name="msgs_main_backup_restore_config_btn_restore">Restore</string>
+        <string name="deleted_msgs_main_uninstall_confirm_title">Uninstall application</string>
+        <string name="deleted_msgs_main_uninstall_confirm_message">Do you want to uninstall application?</string>
+    <!-- Menu -->
+        <string name="msgs_menu_refresh_file_list">Refresh file list</string>
+        <string name="msgs_menu_recreate_cache_file">Recreate cache file…</string>
+        <string name="msgs_menu_scan_folder">Edit Picture folder…</string>
+        <string name="msgs_menu_log_management">Manage log file…</string>
+        <string name="msgs_menu_about">About application…</string>
+        <string name="msgs_menu_settings">Settings…</string>
+        <string name="msgs_menu_kill">Kill the application…</string>
+        <string name="deleted_msgs_menu_uninstall">Uninstall the application…</string>
+        <string name="msgs_menu_quit">Close</string>
+        <string name="msgs_menu_start_camera">Camera</string>
+        <string name="msgs_menu_sort">Sort</string>
+        <string name="msgs_menu_show_hidden_file_to_show">To show hidden directory</string>
+        <string name="msgs_menu_show_hidden_file_to_hide">To hide hidden directory…</string>
+        <string name="msgs_menu_show_folder_view_show_simple_view">To show simple folder view</string>
+        <string name="msgs_menu_show_folder_view_show_standard_view">To show standard folder view</string>
+        <string name="msgs_menu_config_backup_restore">Backup/Restore configuration…</string>
+        <string name="deleted_msgs_menu_show_sdcard_selector">SDCARD Write Permission</string>
+    <!-- Storage -->
+        <string name="msgs_storage_permission_title">Permission to use storage</string>
+    <!-- Setting -->
+        <string name="settings_main_title">Settings</string>
+        <string name="settings_file_title">File</string>
+        <string name="settings_process_hidden_files_title">Hidden file</string>
+        <string name="settings_process_hidden_files_summary_ena">Include hidden file</string>
+        <string name="settings_process_hidden_files">settings_process_hidden_files</string>
+        <string name="settings_file_changed_auto_detect_title">File change detection</string>
+        <string name="settings_file_changed_auto_detect_summary">%s</string>
+        <string name="settings_file_changed_auto_detect_dialog_title">Select file change detect method</string>
+        <string-array name="settings_file_changed_auto_detect_list_entries">
+            <item>None</item>
+            <item>Always perform the synchronization of the file list when the application has been transition to the foreground.</item>
+            <item>To synchronize the file list when the change notification from the media store has been performed.</item>
+        </string-array >
+        <string-array name="settings_file_changed_auto_detect_list_values">
+            <item>0</item>
+            <item>1</item>
+            <item>2</item>
+        </string-array >
+        <string name="settings_file_changed_auto_detect">settings_file_changed_auto_detect</string>
+        <string name="settings_camera_folder_always_top_title">The display position of the camera folder(DCIM)</string>
+        <string name="settings_camera_folder_always_top_summary_ena">Displays the camera folder always at the top.</string>
+        <string name="settings_camera_folder_always_top">settings_camera_folder_always_top</string>
+        <string name="settings_folder_filter_character_count_title">Folder filter character count</string>
+        <string name="settings_folder_filter_character_count_summary">%s character(s)</string>
+        <string name="settings_folder_filter_character_count_dialog_title">Folder filter character count</string>
+        <string-array name="settings_folder_filter_character_count_list_entries">
+            <item>1</item>
+            <item>2</item>
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+            <item>6</item>
+            <item>7</item>
+            <item>8</item>
+            <item>9</item>
+            <item>10</item>
+        </string-array >
+        <string-array name="settings_folder_filter_character_count_list_values">
+            <item>1</item>
+            <item>2</item>
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+            <item>6</item>
+            <item>7</item>
+            <item>8</item>
+            <item>9</item>
+            <item>10</item>
+        </string-array >
+        <string name="settings_folder_filter_character_count">settings_folder_filter_character_count</string>
+        <string name="settings_suppress_add_external_storage_notification_title">External storage notification</string>
+        <string name="settings_suppress_add_external_storage_notification_message">Do not show notification of external storage addition</string>
+        <string name="settings_suppress_add_external_storage_notification">settings_suppress_add_external_storage_notification</string>
+        <string name="settings_clear_cache_title">Clear all cache</string>
+        <string name="settings_clear_cache_message">Do you want to clear cache file?</string>
+        <string name="settings_clear_cache">settings_clear_cache</string>
+        <string name="settings_ui_title">User interface</string>
+        <string name="settings_picture_display_default_ui_mode_title">Photo display mode</string>
+        <string name="settings_picture_display_default_ui_mode_summary">%s</string>
+        <string name="settings_picture_display_default_ui_mode_dialog_title">Select ohoto display mode</string>
+        <string-array name="settings_picture_display_default_ui_mode_list_entries">
+            <item>Hide navigation button</item>
+            <item>Show navigation button</item>
+        </string-array >
+        <string-array name="settings_picture_display_default_ui_mode_list_values">
+            <item>1</item>
+            <item>2</item>
+        </string-array >
+        <string name="settings_picture_display_default_ui_mode">settings_picture_display_default_ui_mode</string>
+        <string name="settings_max_screen_brightness_when_image_showed_title">Screen brightness</string>
+        <string name="settings_max_screen_brightness_when_image_showed_summary_ena">Max brightness when image showed</string>
+        <string name="settings_max_screen_brightness_when_image_showed">settings_max_screen_brightness_when_image_showed</string>
+        <string name="settings_picture_display_option_restore_when_startup_title">Photo display settings</string>
+        <string name="settings_picture_display_option_restore_when_startup_summary_ena">To view the photos in the last photo display settings</string>
+        <string name="settings_picture_display_option_restore_when_startup">settings_picture_display_option_restore_when_startup</string>
+        <string name="settings_exit_clean_title">Exit cleanly</string>
+        <string name="settings_exit_clean_summary_ena">Kill application process after application cleanup</string>
+        <string name="settings_exit_clean">settings_exit_clean</string>
+        <string name="settings_misc_title">Miscellaneous</string>
+</resources>

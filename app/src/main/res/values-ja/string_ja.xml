@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <!-- About -->
+        <string name="msgs_about_dlg_func_btn">機能</string>
+        <string name="msgs_about_dlg_change_btn">更新履歴</string>
+        <string name="msgs_about_dlg_privacy_btn">プライバシー</string>
+        <string name="msgs_dlg_title_about">TinyPictureViewer3</string>
+        <string name="msgs_dlg_title_about_func_desc">TinyPictureViewer3_Desc_JA_Short.htm</string>
+        <string name="msgs_dlg_title_about_change_desc">TinyPictureViewer3_Change_JA.htm</string>
+        <string name="msgs_dlg_title_about_privacy_desc">TinyPictureViewer3_Privacy_JA.htm</string>
+    <!-- Log -->
+        <string name="msgs_log_management_title">ログ管理</string>
+        <string name="msgs_log_management_label_delete">ログの削除</string>
+        <string name="msgs_log_management_label_share">ログの共有</string>
+        <string name="msgs_log_management_label_select_all">全てを選択</string>
+        <string name="msgs_log_management_label_unselect_all">全ての選択を解除</string>
+        <string name="msgs_log_management_no_log_file">ログファイルは空です</string>
+        <string name="msgs_log_management_delete_confirm_msg">下記のログファイルを削除しますか？</string>
+        <string name="msgs_log_management_dlg_close">閉じる</string>
+        <string name="msgs_log_management_dlg_send_zip_file_creating">zipファイルの作成中</string>
+        <string name="msgs_log_management_dlg_send_zip_file_cancelled">zipファイル作成がキャンセルされました</string>
+        <string name="msgs_log_management_log_file_switched">ログファイルを切り替えました。</string>
+        <string name="msgs_log_management_enable_log_file_warning">有効にすることにより下記のデータがログファイルに記録されます。\nAndroidバージョン、端末名、ディレクトリー名、ファイル名、システム設定、アプリ情報</string>
+        <string name="msgs_log_management_send_log_file_warning">ログを開発者にE-Mailを使用して送信します。ログファイルにはAndroidバージョン、端末名、ディレクトリー名、ファイル名、システム設定、アプリ情報が含まれます。\n１．内容表示ボタンを押しtemp_log.txtを表示し、内容を確認してください（テキストファイルを表示するためのアプリケーション選択の画面が表示されたら、アプリケーションを表示してください）\n2．送信する内容を確認したら、送信ボタンを押しE-Mail選択ダイアログでE-Mailを選択\n３. E-Mail本文に問題/疑問を入力し、E-Mailを送信してください。（ログはzipに圧縮し、添付ファイルになっています）</string>
+    <!-- Main -->
+        <string name="msgs_main_restart_by_killed">アプリケーションがバックグラウンドに遷移後、強制終了しました。</string>
+        <string name="msgs_main_restart_by_destroyed">アプリケーションはアクティビティの破棄により終了しました。 設定->開発者向オプションで「アクティビティを保持しない」を有効にしているのであれば無効にしてください。</string>
+        <string name="msgs_main_exit_confirm_msg">アプリケーションを終了しますか？</string>
+        <string name="msgs_main_kill_confirm_msg">アプリケーションを強制終了しますか？</string>
+        <string name="msgs_main_external_storage_select_required_title">ストレージ許可</string>
+        <string name="msgs_main_external_storage_select_required_select_msg">外部ストレージにアクセスをするために、ステップ１.「SDCARD」または「USB」をタップしてください、ステップ２.その後表示された画面で「選択」をタップしてください。\n
+(ステップ２で左上に「ＳＤＣＡＲＤ」または「USB」の画面が直接表示された時は「選択」をタップしてください。左上に「ＳＤＣＡＲＤ」または「USB」以外が表示されている場合は左上のメニューをタップし、ステップ１からやり直してください。)</string>
+        <string name="msgs_main_external_storage_select_retry_select_msg">外部ストレージのルートディレクトリが選択されませんでした。選択しなおしますか？</string>
+        <string name="msgs_main_external_storage_select_deny_msg">外部ストレージへのアクセス許可が拒否されました。外部ストレージへのアクセス許可がされるまでは外部ストレージに記録された写真を表示できません。</string>
+        <string name="msgs_main_external_storage_required_select_msg_file">SMBSync_STORAGE_10.0_JA.png</string>
+        <string name="msgs_main_external_storage_notify_external_storage_available_title">外部ストレージの使用</string>
+        <string name="msgs_main_external_storage_notify_external_storage_available_msg">外部ストレージが使用できます。メニューの「写真フォルダーの編集」で外部ストレージを追加できます。外部ストレージを追加しますか？</string>
+        <string name="msgs_main_external_storage_notify_external_storage_suppress_msg">このメッセージを表示しない。(設定で表示するようにできます)</string>
+        <string name="msgs_main_permission_primary_storage_title">内部ストレージアクセス許可</string>
+        <string name="msgs_main_permission_primary_storage_request_msg">内部ストレージの写真や管理用データの読み書きを行うために、内部ストレージにアクセスする許可を与えてください。</string>
+        <string name="msgs_main_permission_primary_storage_root_not_selected_msg">内部ストレージのルートディレクトリが選択されませんでした。選択しなおしますか？</string>
+        <string name="msgs_main_permission_primary_storage_denied_msg">内部ストレージにアクセスする許可が与えられていないため写真や管理データの読み書きができません、アプリケーションを終了します。</string>
+        <string name="msgs_main_exif_image_info_size">%sx%s</string>
+        <string name="msgs_main_exif_image_info_aperture">F=%s</string>
+        <string name="msgs_main_exif_image_info_exposure_time">SS=%s</string>
+        <string name="msgs_main_exif_image_info_exposure_bias">露出補正=%s</string>
+        <string name="msgs_main_exif_image_info_focal_length">焦点距離=%smm</string>
+        <string name="msgs_main_exif_image_info_iso">ISO=%s</string>
+        <string name="msgs_main_exif_image_info_date_time">%s</string>
+        <string name="msgs_main_exif_image_info_date_time_unknown">撮影日時不明</string>
+        <string name="msgs_main_picture_file_date_time_unknown">不明</string>
+        <string name="msgs_main_exif_image_info_exposure_mode_auto">自動露出</string>
+        <string name="msgs_main_exif_image_info_exposure_mode_manual">マニュアル</string>
+        <string name="msgs_main_exif_image_info_exposure_mode_bracket">ブラケット</string>
+        <string name="msgs_main_exif_image_info_exposure_program_manual">マニュアル</string>
+        <string name="msgs_main_exif_image_info_exposure_program_normal">ノーマル</string>
+        <string name="msgs_main_exif_image_info_exposure_program_aperture">絞り優先</string>
+        <string name="msgs_main_exif_image_info_exposure_program_shutter">シャッター速度優先</string>
+        <string name="msgs_main_exif_image_info_exposure_program_creative">クリエイティブ</string>
+        <string name="msgs_main_exif_image_info_exposure_program_action">アクション</string>
+        <string name="msgs_main_exif_image_info_exposure_program_portrait">ポートレイト</string>
+        <string name="msgs_main_exif_image_info_exposure_program_landscape">ランドスケープ</string>
+        <string name="msgs_main_exif_image_info_dc_subject">タグ=[%s]</string>
+        <string name="msgs_main_exif_image_info_dc_description">説明=%s</string>
+        <string name="msgs_main_exif_image_info_dc_creator">作成=%s</string>
+        <string name="msgs_main_exif_image_info_xmp_label">ラベル=%s</string>
+        <string name="msgs_main_exif_image_info_xmp_rating">レーティング=%s</string>
+        <string name="msgs_main_exif_number_of_shutter_released">シャッター回数=%s</string>
+        <string name="msgs_main_build_file_list_process_title">ファイルリストの作成</string>
+        <string name="msgs_main_build_file_list_process_msg">お待ちください。</string>
+        <string name="msgs_main_build_file_list_process_cancel">キャンセル</string>
+        <string name="msgs_main_build_file_list_process_canceling">キャンセル中</string>
+        <string name="msgs_main_edit_scan_folder_title">写真フォルダーの編集</string>
+        <string name="msgs_main_edit_scan_folder_deleted_directory">削除済み</string>
+        <string name="msgs_main_edit_scan_folder_to_delete_directory">削除する</string>
+        <string name="msgs_main_edit_scan_folder_ignored_folder">下記のフォルダーは上位のフォルダーがサブディレクトリを含めて除外されているために無視されます。</string>
+        <string name="msgs_main_edit_scan_folder_select_include">選択</string>
+        <string name="msgs_main_edit_scan_folder_select_exclude">除外</string>
+        <string name="msgs_main_edit_scan_folder_process_sub_directories">サブディレクトリーを処理する</string>
+        <string name="msgs_main_edit_scan_folder_add_specific_dir">ディレクトリーを追加</string>
+        <string name="msgs_main_edit_scan_folder_request_storage_access_permission">ストレージ追加</string>
+        <string name="msgs_main_cont_label_select_all">全て選択</string>
+        <string name="msgs_main_cont_label_unselect_all">全て選択解除</string>
+        <string name="msgs_main_cont_label_delete">削除</string>
+        <string name="msgs_main_cont_label_rename">改名</string>
+        <string name="msgs_main_cont_label_exclude">除外</string>
+        <string name="msgs_main_cont_label_share">送る</string>
+        <string name="msgs_main_cont_label_add">フォルダー追加</string>
+        <string name="msgs_main_cont_label_copy">コピー</string>
+        <string name="msgs_main_cont_label_cut">カット</string>
+        <string name="msgs_main_cont_label_paste">貼付け</string>
+        <string name="msgs_main_oper_label_show_previous">前の写真を表示</string>
+        <string name="msgs_main_oper_label_show_next">次の写真を表示</string>
+        <string name="msgs_main_oper_label_delete_picture">表示している写真を削除</string>
+        <string name="msgs_main_oper_label_show_maps">マップアプリを起動する</string>
+        <string name="msgs_main_oper_label_revert">ズームと回転を元に戻す</string>
+        <string name="msgs_main_oper_label_rotate_left">写真を反時計回りに90度回転する</string>
+        <string name="msgs_main_oper_label_rotate_right">写真を時計回りに90度回転する</string>
+        <string name="msgs_main_oper_label_zoom_in">ズームイン</string>
+        <string name="msgs_main_oper_label_zoom_out">ズームアウト</string>
+        <string name="msgs_main_oper_label_wall_paper">壁紙アプリを起動する</string>
+        <string name="msgs_main_oper_label_lock_zoom_and_pos">ズームと表示位置の固定/解除</string>
+        <string name="msgs_main_oper_label_lock_phone_orientation">画面回転の固定/解除</string>
+        <string name="msgs_main_oper_label_share_picture">共有するアプリの選択</string>
+        <string name="msgs_main_map_activity_not_found">マップ表示アプリが見つかりません。</string>
+        <string name="msgs_main_file_rename_title">名前の変更</string>
+        <string name="msgs_main_file_rename_confirm_title">下記の項目を改名しますか？</string>
+        <string name="msgs_main_file_rename_completed">改名しました, 名前=%s</string>
+        <string name="msgs_main_file_rename_failed">改名に失敗しました, 名前=%s</string>
+        <string name="msgs_main_file_rename_cancelled">改名が中止されました。</string>
+        <string name="msgs_main_file_update_media_store_information">メディアストア情報を更新しています。</string>
+        <string name="msgs_main_file_delete_confirm_delete">下記項目を削除しますか?</string>
+        <string name="msgs_main_file_delete_dialog_title">削除しています。</string>
+        <string name="msgs_main_file_delete_file_was_deleted">%sを削除しました。</string>
+        <string name="msgs_main_file_delete_file_was_failed">%sの削除が失敗しました。</string>
+        <string name="msgs_main_file_delete_file_was_cancelled">削除が中止されました。</string>
+        <string name="msgs_main_file_delete_file_completed">削除が完了しました。</string>
+        <string name="msgs_main_file_scan_confirm_scan">下記項目をスキャンしますか?</string>
+        <string name="msgs_main_file_scan_dialog_title">スキャンしています</string>
+        <string name="msgs_main_file_scan_please_wait">お待ちください。</string>
+        <string name="msgs_main_file_scan_file_was_cancelled">スキャンが中止されました。</string>
+        <string name="msgs_main_file_scan_file_completed">スキャンが完了しました。</string>
+        <string name="msgs_main_file_copy_file_confirm_title">下記のファイルをコピーしますか？</string>
+        <string name="msgs_main_file_move_file_confirm_title">下記のファイルを移動しますか？</string>
+        <string name="msgs_main_file_cancel_btn">キャンセル</string>
+        <string name="msgs_main_file_canceling_btn">キャンセル中</string>
+        <string name="msgs_main_file_copy_title">コピー中</string>
+        <string name="msgs_main_file_copy_success">%sをコピーしました</string>
+        <string name="msgs_main_file_copy_fail">%s コピーが失敗しました</string>
+        <string name="msgs_main_file_copy_cancel">%s was copy cancelled</string>
+        <string name="msgs_main_file_move_title">移動中</string>
+        <string name="msgs_main_file_move_success">%sを移動しました</string>
+        <string name="msgs_main_file_move_fail">%s 移動が失敗しました</string>
+        <string name="msgs_main_file_move_cancel">%s was move cancelled</string>
+        <string name="msgs_main_file_copy_cut_clear_confirm">下記の項目がコピー/カットされています。クリアしますか？</string>
+        <string name="msgs_main_file_share_file_max_file_count_reached">共有できるファイルの数は100までです。</string>
+        <string name="msgs_main_exclude_folder_confirm">下記項目を除外しますか?</string>
+        <string name="msgs_main_recreate_cache_file_confirm">全てのキャッシュファイルを再作成しますか？</string>
+        <string name="msgs_main_picture_screen_rotation_locked">画面の向きを固定しました。</string>
+        <string name="msgs_main_picture_screen_rotation_unlocked">画面の向きを自動にしました。</string>
+        <string name="msgs_main_picture_zoom_locked">ズーム倍率を固定しました。</string>
+        <string name="msgs_main_picture_zoom_unlocked">ズーム倍率の固定を解除しました。</string>
+        <string name="msgs_main_picture_reset_zoom_and_rotation">写真のズームと回転をリセットしました。</string>
+        <string name="msgs_main_picture_cache_file_may_be_corrupted">キャッシュファイルが壊れている可能性があります。設定で「キャッシュの削除」を行ってください。</string>
+        <string name="msgs_main_folder_view_title">%s フォルダー</string>
+        <string name="msgs_main_folder_view_no_of_pictures">%s ファイル</string>
+        <string name="msgs_main_folder_view_folder_selector_all_folder">全部</string>
+        <string name="msgs_main_view_toolbar_folder_spinner_prompt">フォルダー名の開始文字を選択</string>
+        <string name="msgs_main_thumbnail_view_date_selector_all_picture">全部</string>
+        <string name="msgs_main_thumbnail_view_empty_picture_file">写真が見つかりません</string>
+        <string name="msgs_main_view_toolbar_picture_spinner_prompt">撮影年月を選択</string>
+        <string name="msgs_main_sort_thumbnail_sort_key_name">ファイル名</string>
+        <string name="msgs_main_sort_thumbnail_sort_key_picture_time">撮影日時</string>
+        <string name="msgs_main_sort_thumbnail_sort_key_file_time">ファイル更新時刻</string>
+        <string name="msgs_main_sort_thumbnail_set_sort_parm_all_folder">設定を全てのフォルダーに適用する</string>
+        <string name="msgs_main_sort_thumbnail_set_sort_parm_confirm">現在のソート設定を全てのフォルダーに適用しますか？</string>
+        <string name="msgs_main_sort_folder_sort_key_name">フォルダー名</string>
+        <string name="msgs_main_sort_folder_sort_key_path">ディレクトリーパス</string>
+        <string name="msgs_main_sort_folder_sort_key_time">フォルダー更新時刻</string>
+        <string name="msgs_main_folder_list_add_title">フォルダー追加</string>
+        <string name="msgs_main_hidden_directory_confirm_title">「隠しディレクトリーを表示しない」にすると、現在表示しているフォルダーが表示されなくなることがあります。続行しますか？</string>
+        <string name="msgs_main_detect_file_change">ファイル変更を検知しています。</string>
+        <string name="msgs_main_backup_config_confirm_override">%sに保存されたファイルが存在しています。上書きしますか？</string>
+        <string name="msgs_main_backup_config_backup_completed">設定のバックアップが完了しました。</string>
+        <string name="msgs_main_restore_config_file_not_found">バックアップファイルが見つかりません。</string>
+        <string name="msgs_main_restore_config_confirm_restore">%sに保存された設定を復元しますか？</string>
+        <string name="msgs_main_restore_config_restore_completed">設定の復元が完了しました。</string>
+        <string name="msgs_main_backup_restore_config_backup_date">前回の保存 日時:\n  %s</string>
+        <string name="msgs_main_backup_restore_config_no_backup_file">バックアップファイルが見つかりません。</string>
+        <string name="msgs_main_backup_restore_config_title">設定の保存・復元</string>
+        <string name="msgs_main_backup_restore_config_btn_backup">保存</string>
+        <string name="msgs_main_backup_restore_config_btn_restore">復元</string>
+        <string name="deleted_msgs_main_uninstall_confirm_title">アプリのアンインストール</string>
+        <string name="deleted_msgs_main_uninstall_confirm_message">アプリをアンインストールしてよろしいでしょうか？</string>
+    <!-- Menu -->
+        <string name="msgs_menu_refresh_file_list">ファイルリストの同期</string>
+        <string name="msgs_menu_recreate_cache_file">キャッシュファイルの再作成…</string>
+        <string name="msgs_menu_scan_folder">写真フォルダーの編集…</string>
+        <string name="msgs_menu_log_management">ログファイル管理…</string>
+        <string name="msgs_menu_about">アプリについて…</string>
+        <string name="msgs_menu_settings">設定…</string>
+        <string name="msgs_menu_kill">強制終了…</string>
+        <string name="deleted_msgs_menu_uninstall">アプリのアンインストール…</string>
+        <string name="msgs_menu_quit">閉じる</string>
+        <string name="msgs_menu_start_camera">カメラ</string>
+        <string name="msgs_menu_sort">並替え</string>
+        <string name="msgs_menu_show_hidden_file_to_show">隠しディレクトリを表示する</string>
+        <string name="msgs_menu_show_hidden_file_to_hide">隠しディレクトリを表示しない…</string>
+        <string name="msgs_menu_show_folder_view_show_simple_view">簡易フォルダー表示</string>
+        <string name="msgs_menu_show_folder_view_show_standard_view">詳細フォルダー表示</string>
+        <string name="msgs_menu_config_backup_restore">設定の保存・復元…</string>
+        <string name="deleted_msgs_menu_show_sdcard_selector">SDCARD書込許可</string>
+    <!-- Storage -->
+        <string name="msgs_storage_permission_title">ストレージの許可</string>
+    <!-- Setting -->
+        <string name="settings_main_title">設定</string>
+        <string name="settings_file_title">ファイル</string>
+        <string name="settings_process_hidden_files_title">隠しファイル</string>
+        <string name="settings_process_hidden_files_summary_ena">隠しファイルを表示する</string>
+        <string name="settings_process_hidden_files">settings_process_hidden_files</string>
+        <string name="settings_file_changed_auto_detect_title">ファイル変更検出</string>
+        <string name="settings_file_changed_auto_detect_summary">%s</string>
+        <string name="settings_file_changed_auto_detect_dialog_title">ファイル変更検出の選択</string>
+        <string-array name="settings_file_changed_auto_detect_list_entries">
+            <item>無し</item>
+            <item>常にアプリがフォアグラウンドに遷移した時にファイルリストの同期を行う</item>
+            <item>メディアストアからの変更通知が行われた時にファイルリストの同期を行う</item>
+        </string-array >
+        <string-array name="settings_file_changed_auto_detect_list_values">
+            <item>0</item>
+            <item>1</item>
+            <item>2</item>
+        </string-array >
+        <string name="settings_file_changed_auto_detect">settings_file_changed_auto_detect</string>
+        <string name="settings_camera_folder_always_top_title">カメラフォルダーの表示位置</string>
+        <string name="settings_camera_folder_always_top_summary_ena">カメラフォルダーを常に最上部に表示する</string>
+        <string name="settings_camera_folder_always_top">settings_camera_folder_always_top</string>
+        <string name="settings_folder_filter_character_count_title">フォルダーフィルターの文字数</string>
+        <string name="settings_folder_filter_character_count_summary">%s文字</string>
+        <string name="settings_folder_filter_character_count_dialog_title">フォルダーフィルターの文字数</string>
+        <string-array name="settings_folder_filter_character_count_list_entries">
+            <item>1</item>
+            <item>2</item>
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+            <item>6</item>
+            <item>7</item>
+            <item>8</item>
+            <item>9</item>
+            <item>10</item>
+        </string-array >
+        <string-array name="settings_folder_filter_character_count_list_values">
+            <item>1</item>
+            <item>2</item>
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+            <item>6</item>
+            <item>7</item>
+            <item>8</item>
+            <item>9</item>
+            <item>10</item>
+        </string-array >
+        <string name="settings_folder_filter_character_count">settings_folder_filter_character_count</string>
+        <string name="settings_suppress_add_external_storage_notification_title">外部ストレージ通知</string>
+        <string name="settings_suppress_add_external_storage_notification_message">外部ストレージ追加の通知を表示しない</string>
+        <string name="settings_suppress_add_external_storage_notification">settings_suppress_add_external_storage_notification</string>
+        <string name="settings_clear_cache_title">キャッシュの削除</string>
+        <string name="settings_clear_cache_message">キャッシュを削除しますか？</string>
+        <string name="settings_clear_cache">settings_clear_cache</string>
+        <string name="settings_ui_title">ユーザーインターフェース</string>
+        <string name="settings_picture_display_default_ui_mode_title">写真表示画面</string>
+        <string name="settings_picture_display_default_ui_mode_summary">%s</string>
+        <string name="settings_picture_display_default_ui_mode_dialog_title">写真表示モードの選択</string>
+        <string-array name="settings_picture_display_default_ui_mode_list_entries">
+            <item>操作ボタン無し</item>
+            <item>操作ボタンを表示</item>
+        </string-array >
+        <string-array name="settings_picture_display_default_ui_mode_list_values">
+            <item>1</item>
+            <item>2</item>
+        </string-array >
+        <string name="settings_picture_display_default_ui_mode">settings_picture_display_default_ui_mode</string>
+        <string name="settings_max_screen_brightness_when_image_showed_title">画面輝度</string>
+        <string name="settings_max_screen_brightness_when_image_showed_summary_ena">写真表示時に画面輝度を最高にする</string>
+        <string name="settings_max_screen_brightness_when_image_showed">settings_max_screen_brightness_when_image_showed</string>
+        <string name="settings_picture_display_option_restore_when_startup_title">写真表示設定</string>
+        <string name="settings_picture_display_option_restore_when_startup_summary_ena">前回の写真表示設定で写真を表示する</string>
+        <string name="settings_picture_display_option_restore_when_startup">settings_picture_display_option_restore_when_startup</string>
+        <string name="settings_exit_clean_title">アプリ終了時の処理</string>
+        <string name="settings_exit_clean_summary_ena">プロセスをKillする</string>
+        <string name="settings_exit_clean">settings_exit_clean</string>
+        <string name="settings_misc_title">その他</string>
+</resources>
