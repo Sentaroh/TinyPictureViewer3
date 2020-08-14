@@ -1,21 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:appv7="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_top_start_camera"
-          android:title="@string/msgs_menu_start_camera" 
-          android:icon="@android:drawable/ic_menu_camera"
-          appv7:showAsAction="always"/>
-    
     <item android:id="@+id/menu_top_sort_folder"
           android:title="@string/msgs_menu_sort" 
           android:icon="@drawable/ic_128_sort_dsc_gray"
-          appv7:showAsAction="ifRoom"/>
+          appv7:showAsAction="always"/>
     
     <item android:id="@+id/menu_top_sort_thumbnail"
           android:title="@string/msgs_menu_sort" 
           android:icon="@drawable/ic_128_sort_dsc_gray"
-          appv7:showAsAction="ifRoom"/>
-    
+          appv7:showAsAction="always"/>
+
+    <item android:id="@+id/menu_top_start_camera"
+        android:title="@string/msgs_menu_start_camera"
+        android:icon="@android:drawable/ic_menu_camera"
+        appv7:showAsAction="ifRoom"/>
+
     <item android:id="@+id/menu_top_refresh_file_list"
           android:title="@string/msgs_menu_refresh_file_list" 
           android:icon="@drawable/ic_128_refresh"
@@ -32,6 +32,14 @@
 
     <item android:id="@+id/menu_top_switch_folder_view"
         android:title="@string/msgs_menu_show_folder_view_show_simple_view"
+        />
+
+    <item android:id="@+id/menu_top_backup_config"
+        android:title="@string/msgs_menu_backup_config"
+        />
+
+    <item android:id="@+id/menu_top_restore_config"
+        android:title="@string/msgs_menu_restore_config"
         />
 
     <item android:id="@+id/menu_top_log_management"

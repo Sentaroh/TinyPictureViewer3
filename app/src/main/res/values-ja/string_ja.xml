@@ -160,36 +160,33 @@
         <string name="msgs_main_folder_list_add_title">フォルダー追加</string>
         <string name="msgs_main_hidden_directory_confirm_title">「隠しディレクトリーを表示しない」にすると、現在表示しているフォルダーが表示されなくなることがあります。続行しますか？</string>
         <string name="msgs_main_detect_file_change">ファイル変更を検知しています。</string>
-        <string name="msgs_main_backup_config_confirm_override">%sに保存されたファイルが存在しています。上書きしますか？</string>
+        <string name="msgs_main_backup_config_confirm_override">設定のバックアップファイルが存在します、上書きしますか？</string>
         <string name="msgs_main_backup_config_backup_completed">設定のバックアップが完了しました。</string>
         <string name="msgs_main_restore_config_file_not_found">バックアップファイルが見つかりません。</string>
-        <string name="msgs_main_restore_config_confirm_restore">%sに保存された設定を復元しますか？</string>
+        <string name="msgs_main_restore_config_confirm_restore">保存された設定を復元しますか？</string>
         <string name="msgs_main_restore_config_restore_completed">設定の復元が完了しました。</string>
         <string name="msgs_main_backup_restore_config_backup_date">前回の保存 日時:\n  %s</string>
         <string name="msgs_main_backup_restore_config_no_backup_file">バックアップファイルが見つかりません。</string>
         <string name="msgs_main_backup_restore_config_title">設定の保存・復元</string>
         <string name="msgs_main_backup_restore_config_btn_backup">保存</string>
         <string name="msgs_main_backup_restore_config_btn_restore">復元</string>
-        <string name="deleted_msgs_main_uninstall_confirm_title">アプリのアンインストール</string>
-        <string name="deleted_msgs_main_uninstall_confirm_message">アプリをアンインストールしてよろしいでしょうか？</string>
     <!-- Menu -->
         <string name="msgs_menu_refresh_file_list">ファイルリストの同期</string>
-        <string name="msgs_menu_recreate_cache_file">キャッシュファイルの再作成…</string>
-        <string name="msgs_menu_scan_folder">写真フォルダーの編集…</string>
-        <string name="msgs_menu_log_management">ログファイル管理…</string>
-        <string name="msgs_menu_about">アプリについて…</string>
-        <string name="msgs_menu_settings">設定…</string>
-        <string name="msgs_menu_kill">強制終了…</string>
-        <string name="deleted_msgs_menu_uninstall">アプリのアンインストール…</string>
+        <string name="deleted_msgs_menu_recreate_cache_file">キャッシュファイルの再作成</string>
+        <string name="msgs_menu_scan_folder">写真フォルダーの編集</string>
+        <string name="msgs_menu_log_management">ログファイル管理</string>
+        <string name="msgs_menu_about">アプリについて</string>
+        <string name="msgs_menu_settings">設定</string>
+        <string name="msgs_menu_kill">強制終了</string>
         <string name="msgs_menu_quit">閉じる</string>
-        <string name="msgs_menu_start_camera">カメラ</string>
+        <string name="msgs_menu_start_camera">カメラ起動</string>
         <string name="msgs_menu_sort">並替え</string>
         <string name="msgs_menu_show_hidden_file_to_show">隠しディレクトリを表示する</string>
         <string name="msgs_menu_show_hidden_file_to_hide">隠しディレクトリを表示しない…</string>
+        <string name="msgs_menu_backup_config">設定のバックアップ</string>
+        <string name="msgs_menu_restore_config">設定の復元</string>
         <string name="msgs_menu_show_folder_view_show_simple_view">簡易フォルダー表示</string>
         <string name="msgs_menu_show_folder_view_show_standard_view">詳細フォルダー表示</string>
-        <string name="msgs_menu_config_backup_restore">設定の保存・復元…</string>
-        <string name="deleted_msgs_menu_show_sdcard_selector">SDCARD書込許可</string>
     <!-- Storage -->
         <string name="msgs_storage_permission_title">ストレージの許可</string>
     <!-- Setting -->

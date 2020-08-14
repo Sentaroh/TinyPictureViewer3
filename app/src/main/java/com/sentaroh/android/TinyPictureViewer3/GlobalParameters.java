@@ -202,7 +202,7 @@ public class GlobalParameters  {
 	public boolean settingMaxBrightWhenImageShowed=true;
 //	public boolean settingPictureScreenWithoutNavigateButton=false;
 
-    private static final String SHOW_SIMPLE_FOLDER_VIEW_KEY="show_simple_folder_view_key";
+    public static final String SHOW_SIMPLE_FOLDER_VIEW_KEY="show_simple_folder_view_key";
     public boolean settingShowSimpleFolderView=true;
 	
 	public String settingAutoFileChangeDetection=AUTO_FILE_CHANGE_DETECTION_ALWAYS;
@@ -404,12 +404,11 @@ public class GlobalParameters  {
 
 	};
 
-	static private final String DISPLAY_OPTION_LAST_UIMODE="settings_picture_display_last_ui_mode";
+	public static final String DISPLAY_OPTION_LAST_UIMODE="settings_picture_display_last_ui_mode";
 	public void saveSettingPictureDisplayUiMode(Context c) {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
 		prefs.edit().putInt(DISPLAY_OPTION_LAST_UIMODE, uiMode).commit();
 		settingPictureDisplayLastUiMode=uiMode;
-//		Log.v("","gp nav="+enabled);
 	};
 
 	public void saveSettingOptionHiddenFile(Context c, boolean enable_hidden_file) {
@@ -453,8 +452,8 @@ public class GlobalParameters  {
         loadScanFolderList(c);
 	};
 
-	final static private String FOLDER_LIST_SORT_KEY="settings_folder_list_sort_key";
-	final static private String FOLDER_LIST_SORT_ORDER="settings_folder_list_sort_order";
+	public final static String FOLDER_LIST_SORT_KEY="settings_folder_list_sort_key";
+	public final static String FOLDER_LIST_SORT_ORDER="settings_folder_list_sort_order";
 	public void saveFolderSortParm(Context c) {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
 		prefs.edit().putInt(FOLDER_LIST_SORT_KEY, folderListSortKey).commit(); 

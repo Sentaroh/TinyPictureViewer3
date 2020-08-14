@@ -666,6 +666,9 @@ public class ActivityMain extends AppCompatActivity {
 		if (mGp.debuggable) menu.findItem(R.id.menu_top_switch_test_mode).setVisible(true);
 		else menu.findItem(R.id.menu_top_switch_test_mode).setVisible(false);
 
+        menu.findItem(R.id.menu_top_backup_config).setVisible(false);
+        menu.findItem(R.id.menu_top_restore_config).setVisible(false);
+
         menu.findItem(R.id.menu_top_switch_folder_view).setVisible(false);
 		if (mGp.currentView==CURRENT_VIEW_FOLDER) {
 			menu.findItem(R.id.menu_top_sort_thumbnail).setVisible(false);
@@ -678,12 +681,14 @@ public class ActivityMain extends AppCompatActivity {
 					menu.findItem(R.id.menu_top_sort_folder).setVisible(false);
 					mGp.spinnerFolderSelector.setVisibility(Spinner.GONE);
 					menu.findItem(R.id.menu_top_start_camera).setVisible(false);
-				} else {
+                } else {
 					menu.findItem(R.id.menu_top_edit_scan_folder).setVisible(true);
 					menu.findItem(R.id.menu_top_refresh_file_list).setVisible(true);
 					menu.findItem(R.id.menu_top_sort_folder).setVisible(true);
 					mGp.spinnerFolderSelector.setVisibility(Spinner.VISIBLE);
 					menu.findItem(R.id.menu_top_start_camera).setVisible(true);
+                    menu.findItem(R.id.menu_top_backup_config).setVisible(true);
+                    if (ConfigUtility.isBackupConfigFileExists(mContext)) menu.findItem(R.id.menu_top_restore_config).setVisible(true);
 				}
 			} else {
 				mGp.spinnerFolderSelector.setVisibility(Spinner.GONE);
@@ -816,8 +821,14 @@ public class ActivityMain extends AppCompatActivity {
 				return true;			
 			case R.id.menu_top_settings:
 				invokeSettingsActivity();
-				return true;			
-			case R.id.menu_top_kill:
+				return true;
+            case R.id.menu_top_backup_config:
+                invokeBackupConfig();
+                return true;
+            case R.id.menu_top_restore_config:
+                invokeRestoreConfig();
+                return true;
+            case R.id.menu_top_kill:
 				confirmKill();
 				return true;			
 //			case R.id.menu_top_uninstall:
@@ -830,9 +841,54 @@ public class ActivityMain extends AppCompatActivity {
 		return false;
 	}
 
+
+
+	private void invokeBackupConfig() {
+	    NotifyEvent ntfy=new NotifyEvent(mContext);
+	    ntfy.setListener(new NotifyEventListener() {
+            @Override
+            public void positiveResponse(Context context, Object[] objects) {
+                ConfigUtility.saveSettingsParmsToFile(mContext) ;
+                mCommonDlg.showCommonDialog(false, "I", mContext.getString(R.string.msgs_main_backup_config_backup_completed), "", null);
+            }
+
+            @Override
+            public void negativeResponse(Context context, Object[] objects) {
+
+            }
+        });
+	    if (ConfigUtility.isBackupConfigFileExists(mContext)) {
+            mCommonDlg.showCommonDialog(true, "W", mContext.getString(R.string.msgs_main_backup_config_confirm_override), "", ntfy);
+        } else {
+	        ntfy.notifyToListener(true, null);
+        }
+    }
+
+    private void invokeRestoreConfig() {
+        NotifyEvent ntfy=new NotifyEvent(mContext);
+        ntfy.setListener(new NotifyEventListener() {
+            @Override
+            public void positiveResponse(Context context, Object[] objects) {
+                ConfigUtility.restoreSettingsParmFromFile(mContext) ;
+                applySettingParms();
+                refreshFileList();
+                mCommonDlg.showCommonDialog(false, "I", mContext.getString(R.string.msgs_main_restore_config_restore_completed), "", null);
+            }
+
+            @Override
+            public void negativeResponse(Context context, Object[] objects) {
+
+            }
+        });
+        mCommonDlg.showCommonDialog(true, "W", mContext.getString(R.string.msgs_main_restore_config_confirm_restore), "", ntfy);
+    }
+
     private void switchFolderView() {
         mGp.saveSettingOptionShowSimpleFolderView(mContext, !mGp.settingShowSimpleFolderView);
+        applyFolderViewSetting();
+    }
 
+    private void applyFolderViewSetting() {
         if (mGp.settingShowSimpleFolderView) mGp.folderGridView.setColumnWidth((int)CommonDialog.toPixel(mContext.getResources(), 156));
         else mGp.folderGridView.setColumnWidth((int)CommonDialog.toPixel(mContext.getResources(), 250));
 
@@ -841,7 +897,6 @@ public class ActivityMain extends AppCompatActivity {
         mGp.adapterFolderView.setSortKey(mGp.folderListSortKey);
         mGp.adapterFolderView.setSortOrder(mGp.folderListSortOrder);
         mGp.adapterFolderView.notifyDataSetChanged();;
-
     }
 
     private boolean showPictureByIntent(Intent intent) {
@@ -1480,8 +1535,12 @@ public class ActivityMain extends AppCompatActivity {
 		boolean prev_hidden_file=mGp.settingScanHiddenFile;
 		boolean prev_always_top=mGp.settingCameraFolderAlwayTop;
 		int prev_folder_name_length=mGp.settingFolderSelectionCharacterCount;
+		boolean prev_folder_view=mGp.settingShowSimpleFolderView;
 		mGp.loadSettingsParms(mContext);
 		mGp.refreshMediaDir(mContext);
+        if (prev_folder_view!=mGp.settingShowSimpleFolderView) {
+            applyFolderViewSetting();
+        }
 
 		if (!mGp.settingPictureDisplayOptionRestoreWhenStartup) {
 			mGp.settingPictureDisplayLastUiMode=mGp.settingPictureDisplayDefualtUiMode;
