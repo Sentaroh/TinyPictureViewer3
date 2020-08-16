@@ -1446,7 +1446,7 @@ public class ActivityMain extends AppCompatActivity {
 	private void invokeLogManagement() {
         LogUtil.flushLog(mContext);
         LogManagementFragment lfm = LogManagementFragment.newInstance(mContext, false, getString(R.string.msgs_log_management_title));
-        lfm.showDialog(getSupportFragmentManager(), lfm, null);
+        lfm.showDialog(mContext, getSupportFragmentManager(), lfm, null);
 	};
 
 	public boolean isApplicationTerminating() {return mTerminateApplication;}
