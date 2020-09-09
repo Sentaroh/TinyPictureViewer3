@@ -1894,7 +1894,12 @@ public class ActivityMain extends AppCompatActivity {
 	};
 
 	public void setUiHideSystemView() {
-		getWindow().addFlags(
+	    if (Build.VERSION.SDK_INT>=28) {
+            LayoutParams attrib = getWindow().getAttributes();
+            attrib.layoutInDisplayCutoutMode = LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER;
+        }
+
+        getWindow().addFlags(
 				  WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
 				| WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 //				| WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
@@ -1910,6 +1915,10 @@ public class ActivityMain extends AppCompatActivity {
         		View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 	};
 	private void setUiShowSystemView() {
+        if (Build.VERSION.SDK_INT>=28) {
+            LayoutParams attrib = getWindow().getAttributes();
+            attrib.layoutInDisplayCutoutMode = LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER;
+        }
 		getWindow().addFlags(
 				  WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
 				| WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS

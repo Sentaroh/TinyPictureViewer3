@@ -24,6 +24,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 import android.content.Context;
 import android.media.MediaScannerConnection;
+import android.os.Build;
 
 import com.sentaroh.android.Utilities3.Dialog.ProgressSpinDialogFragment;
 import com.sentaroh.android.Utilities3.SafFile3;
@@ -43,8 +44,8 @@ public class FileIo {
 	private final static int BUFFER_SIZE=1024*1024*4;
 
     static public void scanMediaFile(GlobalParameters gp, CommonUtilities util, String fp) {
-//        MediaScannerConnection.scanFile(gp.appContext, new String[]{fp}, null, null);
-//        util.addDebugMsg(2, "I","Media scanner invoked, name=",fp);
+        MediaScannerConnection.scanFile(gp.appContext, new String[]{fp}, null, null);
+        util.addDebugMsg(2, "I","Media scanner invoked, name=",fp);
     };
 
     static public boolean deleteLocalItem(GlobalParameters gp, CommonUtilities util, SafFile3 del_item) {
@@ -153,7 +154,7 @@ public class FileIo {
             SafFile3 out_file=new SafFile3(gp.appContext, to_dir+"/"+in_file.getName());
             out_file.deleteIfExists();
             if (move_required) result=out_file_tmp.moveTo(out_file);
-            else result=out_file_tmp.renameTo(out_file);
+            else result=renameSafFile(out_file_tmp, out_file);
             scanMediaFile(gp, util, out_file.getPath());
             String msg="";
             if (move) {
@@ -174,5 +175,15 @@ public class FileIo {
         }
         return true;
     };
+
+    public static boolean renameSafFile(SafFile3 from, SafFile3 to) {
+        boolean result=from.renameTo(to);
+        if (!from.getPath().startsWith(SafFile3.SAF_FILE_PRIMARY_STORAGE_PREFIX)) {
+            if (!result && !from.exists() && to.exists()) {
+                result=true;
+            }
+        }
+        return result;
+    }
 
 }
