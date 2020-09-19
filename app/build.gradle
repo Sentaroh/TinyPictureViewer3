@@ -79,6 +79,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
 //    implementation 'androidx.core:core-ktx:1.0.2'
 
+    implementation files('libs/ImageViewTouch-1.0.1-Mod.jar')
     implementation files('libs/Utilities3-1.0.2.aar')
 
     implementation files('libs/metadata-extractor-2.9.1.jar')

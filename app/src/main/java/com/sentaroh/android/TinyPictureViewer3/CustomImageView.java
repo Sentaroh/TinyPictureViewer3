@@ -29,8 +29,6 @@ import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-import com.sentaroh.android.Utilities3.Widget.ExtendImageViewTouch;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
