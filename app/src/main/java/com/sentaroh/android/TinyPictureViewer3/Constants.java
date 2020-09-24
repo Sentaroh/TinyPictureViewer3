@@ -27,6 +27,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 public class Constants {
 
 	public static final String APPLICATION_TAG="TinyPictureViewer3";
+    public static final String PACKAGE_NAME="com.sentaroh.android."+APPLICATION_TAG;
 
 	public static long SERIALIZABLE_VERSION_CODE=41L;
 

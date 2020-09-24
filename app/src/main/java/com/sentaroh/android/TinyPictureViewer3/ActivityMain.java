@@ -3505,7 +3505,10 @@ public class ActivityMain extends AppCompatActivity {
 								mContext.getString(R.string.msgs_main_file_share_file_max_file_count_reached), "", null);
 
 					} else {
-						CommonUtilities.sharePictures(mContext, send_fp);
+						String e_msg=CommonUtilities.sharePictures(mContext, send_fp);
+						if (!e_msg.equals("")) {
+						    mUtil.addDebugMsg(1,"E", "Share error="+e_msg);
+                        }
 					}
 				}
 			}

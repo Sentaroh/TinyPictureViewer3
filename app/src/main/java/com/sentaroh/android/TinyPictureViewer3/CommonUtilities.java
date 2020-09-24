@@ -145,9 +145,8 @@ public final class CommonUtilities {
             ArrayList<Uri> files = new ArrayList<Uri>();
 
             for(String path : send_pic_fp) {
-                File file = new File(path);
-                SafFile3 sf=new SafFile3(c, path);
-                Uri uri =sf.getUri();
+                File lf = new File(path);
+                Uri uri=FileProvider.getUriForFile(c, PACKAGE_NAME+".provider", lf);
                 files.add(uri);
             }
             intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, files);
@@ -161,15 +160,15 @@ public final class CommonUtilities {
         } else {
             Intent intent = new Intent(android.content.Intent.ACTION_SEND);
             File lf=new File(send_pic_fp[0]);
-            SafFile3 sf=new SafFile3(c, send_pic_fp[0]);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-            Uri uri=sf.getUri();
+            Uri uri=FileProvider.getUriForFile(c, PACKAGE_NAME+".provider", lf);
             intent.putExtra(Intent.EXTRA_STREAM, uri);
             intent.setType("image/*");
             try {
                 c.startActivity(intent);
             } catch(Exception e) {
+                e.printStackTrace();
                 return "startActivity() failed at shareItem() for multiple item. message="+e.getMessage()+"\n"+getStackTraceElement(e);
             }
         }
