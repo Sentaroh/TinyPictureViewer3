@@ -918,17 +918,18 @@ public class ActivityMain extends AppCompatActivity {
 	}
 
     private void showSinglePictureByIntent(SafFile3 in_file) {
+	    SafFile3 new_in_file=new SafFile3(mContext, true, in_file.getUri(), in_file.getName());
         int pic_pos=0;
         PictureListItem pli=new PictureListItem();
-        pli.setFileName(in_file.getName());
-        pli.setParentDirectory(PictureListItem.createParentDirectory(in_file));
-        pli.setFolderName(PictureListItem.createFolderName(in_file));
-        pli.setFileLastModified(in_file.lastModified());
-        pli.setFileLength(in_file.length());
+        pli.setFileName(new_in_file.getName());
+        pli.setParentDirectory(PictureListItem.createParentDirectory(new_in_file));
+        pli.setFolderName(PictureListItem.createFolderName(new_in_file));
+        pli.setFileLastModified(new_in_file.lastModified());
+        pli.setFileLength(new_in_file.length());
 
-        if (in_file.getName().equals(in_file.getName())) {
-            pli.createFileInfo(in_file);
-            pli.createExifInfo(in_file);
+        if (new_in_file.getName().equals(new_in_file.getName())) {
+            pli.createFileInfo(new_in_file);
+            pli.createExifInfo(new_in_file);
             pic_pos=mGp.showedPictureList.size();
         }
         mGp.showedPictureList.add(pli);
