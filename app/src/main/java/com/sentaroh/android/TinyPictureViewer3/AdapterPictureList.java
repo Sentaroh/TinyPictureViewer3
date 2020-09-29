@@ -138,10 +138,9 @@ public class AdapterPictureList extends PagerAdapter {
 		
     	pw.image_file_name=pfli.getFileName();
     	pw.image_file_parent_directory=pfli.getParentDirectory();
-    	pw.image_saf_file=new SafFile3(mContext, Uri.parse(pfli.getPictureFileUriString()));
-    	pw.image_file_path=
-    			pw.image_file_parent_directory+"/"+
-    			pw.image_file_name;
+    	if (pfli.getInputFile()==null) pw.image_saf_file=new SafFile3(mContext, Uri.parse(pfli.getPictureFileUriString()));
+    	else pw.image_saf_file=pfli.getInputFile();
+    	pw.image_file_path=pw.image_file_parent_directory+"/"+pw.image_file_name;
     	
 		if (pfli.getExifImageHeight()==-1) {
 			pfli.createExifInfo(pw.image_saf_file);

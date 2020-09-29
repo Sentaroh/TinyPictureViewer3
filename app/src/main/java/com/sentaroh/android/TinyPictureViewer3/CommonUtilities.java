@@ -175,7 +175,22 @@ public final class CommonUtilities {
         return null;
     };
 
-	public static void setSpinnerBackground(Context c, Spinner spinner, boolean theme_is_light) {
+    public static String sharePictures(Context c, Uri send_pic_fp) {
+        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+        intent.putExtra(Intent.EXTRA_STREAM, send_pic_fp);
+        intent.setType("image/*");
+        try {
+            c.startActivity(intent);
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "startActivity() failed at shareItem() for multiple item. message="+e.getMessage()+"\n"+getStackTraceElement(e);
+        }
+        return null;
+    };
+
+    public static void setSpinnerBackground(Context c, Spinner spinner, boolean theme_is_light) {
 		if (theme_is_light) spinner.setBackground(c.getDrawable(R.drawable.spinner_color_background_light));
 		else spinner.setBackground(c.getDrawable(R.drawable.action_bar_spinner_color_background));
 	};

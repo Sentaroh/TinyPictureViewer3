@@ -237,7 +237,10 @@ public class PictureListItem implements Externalizable, Comparable<PictureListIt
 	public void setEnabled(boolean p) {enabled=p;};
 	public boolean isEnabled() {return enabled;}
 
-	
+	private SafFile3 inputFile=null;
+	public SafFile3 getInputFile() {return inputFile;}
+	public void setInputFile(SafFile3 file) {inputFile=file;}
+
 	private boolean debug_enabled=false;
 
 //	private GlobalParameters mGp=null;

@@ -23,7 +23,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 */
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -33,7 +32,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.View;
@@ -60,7 +58,6 @@ import com.sentaroh.android.Utilities3.Widget.NonWordwrapTextView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import static com.sentaroh.android.TinyPictureViewer3.Constants.*;
@@ -384,13 +381,9 @@ public class PictureView {
 	};
 	
 	private void setPictureViewListener() {
-        mGp.picturePrevBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_show_previous), 3);
-                return true;
-            }
-        });
+	    final boolean show_label_as_up=true;
+        final boolean show_label_as_down=false;
+        showContextButtonLabe(show_label_as_up, mActivity, mGp.picturePrevBtn, mContext.getString(R.string.msgs_main_oper_label_show_previous));
 		mGp.picturePrevBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -398,13 +391,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureNextBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_show_next), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureNextBtn, mContext.getString(R.string.msgs_main_oper_label_show_next));
 		mGp.pictureNextBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -412,13 +399,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureZoomInBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_zoom_in), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureZoomInBtn, mContext.getString(R.string.msgs_main_oper_label_zoom_in));
 		mGp.pictureZoomInBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -443,13 +424,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureZoomOutBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_zoom_out), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureZoomOutBtn, mContext.getString(R.string.msgs_main_oper_label_zoom_out));
 		mGp.pictureZoomOutBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -473,13 +448,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureRotatePictureLeftBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_rotate_left), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureRotatePictureLeftBtn, mContext.getString(R.string.msgs_main_oper_label_rotate_left));
 		mGp.pictureRotatePictureRightBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -488,13 +457,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureRotatePictureRightBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_rotate_right), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureRotatePictureRightBtn, mContext.getString(R.string.msgs_main_oper_label_rotate_right));
 		mGp.pictureRotatePictureLeftBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -503,13 +466,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureLockZoomBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_lock_zoom_and_pos), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureLockZoomBtn, mContext.getString(R.string.msgs_main_oper_label_lock_zoom_and_pos));
 		mGp.pictureLockZoomBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -534,13 +491,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureLockScreenRotationBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_lock_phone_orientation), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureLockScreenRotationBtn, mContext.getString(R.string.msgs_main_oper_label_lock_phone_orientation));
 		mGp.pictureLockScreenRotationBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -561,13 +512,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureResetBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_revert), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureResetBtn, mContext.getString(R.string.msgs_main_oper_label_revert));
 		mGp.pictureResetBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -618,31 +563,23 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureShareBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_share_picture), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureShareBtn, mContext.getString(R.string.msgs_main_oper_label_share_picture));
 		mGp.pictureShareBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				if (!mActivity.isUiEnabled()) return;
 				int pos=mGp.customViewPager.getCurrentItem();
-				String[] send_pic_fp=new String[]{mGp.adapterPictureView.getPictureWorkList().get(pos).image_file_path};
-                String emsg=CommonUtilities.sharePictures(mContext, send_pic_fp);
-                if (emsg!=null) mCommonDlg.showCommonDialog(false, "E", "Action_Send error", emsg, null);
+				if (mGp.adapterPictureView.getPictureWorkList().get(pos).pictureItem.getInputFile()==null) {
+                    String[] send_pic_fp=new String[]{mGp.adapterPictureView.getPictureWorkList().get(pos).image_file_path};
+                    String emsg=CommonUtilities.sharePictures(mContext, send_pic_fp);
+                    if (emsg!=null) mCommonDlg.showCommonDialog(false, "E", "Action_Send error", emsg, null);
+                } else {
+                    CommonUtilities.sharePictures(mContext, mGp.adapterPictureView.getPictureWorkList().get(pos).pictureItem.getInputFile().getUri());
+                }
 			}
 		});
 
-        mGp.pictureWallpaperBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_wall_paper), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureWallpaperBtn, mContext.getString(R.string.msgs_main_oper_label_wall_paper));
 		mGp.pictureWallpaperBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -652,13 +589,7 @@ public class PictureView {
 			}
 		});
 
-        mGp.pictureShowMapBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsUpAnchorView(mActivity,  view, mContext.getString(R.string.msgs_main_oper_label_show_maps), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_up,mActivity, mGp.pictureShowMapBtn, mContext.getString(R.string.msgs_main_oper_label_show_maps));
 		mGp.pictureShowMapBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -701,13 +632,7 @@ public class PictureView {
             }
         });
 
-        mGp.pictureDeleteBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                CommonDialog.showPopupMessageAsDownAnchorView(mActivity,  mGp.pictureDeleteBtn, mContext.getString(R.string.msgs_main_oper_label_delete_picture), 3);
-                return true;
-            }
-        });
+        showContextButtonLabe(show_label_as_down,mActivity, mGp.pictureDeleteBtn, mContext.getString(R.string.msgs_main_oper_label_delete_picture));
 		mGp.pictureDeleteBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -813,6 +738,17 @@ public class PictureView {
 			}
 		});
 	};
+
+	private void showContextButtonLabe(boolean up, final ActivityMain a, final ImageButton ib, final String label) {
+	    ib.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (up) CommonDialog.showPopupMessageAsUpAnchorView(a,  v, label, 2);
+                else CommonDialog.showPopupMessageAsDownAnchorView(a,  v, label, 2);
+                return true;
+            }
+        });
+    }
 
     private void showPrevPicture() {
         if (!mActivity.isUiEnabled()) return;

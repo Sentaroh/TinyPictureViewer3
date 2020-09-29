@@ -125,6 +125,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
@@ -236,7 +237,9 @@ public class ActivityMain extends AppCompatActivity {
         checkMapApplicationAvailability();
 
         initViewWidget();
-       
+
+        mGp.folderView.setVisibility(LinearLayout.GONE);
+
         if (Build.VERSION.SDK_INT>=24) {
     	    resetMultiWindowMode(isInMultiWindowMode());
         }
@@ -333,9 +336,9 @@ public class ActivityMain extends AppCompatActivity {
                     if (mRestartStatus==0) {
                         Intent in=getIntent();
                         if (in!=null && in.getData()!=null) {
+                            mGp.showSinglePicture=true;
+                            mTerminateApplication=true;
                             if (!showPictureByIntent(in)) {
-                                mGp.showSinglePicture=true;
-                                mTerminateApplication=true;
                                 finish();
                             }
                         }
@@ -909,7 +912,7 @@ public class ActivityMain extends AppCompatActivity {
             final SafFile3 tlf=new SafFile3(mContext, intent.getData());
             if (PictureUtil.isPictureFile(mGp, tlf.getName())) {
                 mGp.showedPictureList.clear();
-                showSinglePictureByIntent(tlf);
+                showSinglePictureByIntent(intent.getData(), tlf.getName());
             } else {
                 result=false;
             }
@@ -917,8 +920,8 @@ public class ActivityMain extends AppCompatActivity {
 		return result;
 	}
 
-    private void showSinglePictureByIntent(SafFile3 in_file) {
-	    SafFile3 new_in_file=new SafFile3(mContext, true, in_file.getUri(), in_file.getName());
+    private void showSinglePictureByIntent(Uri uri, String name) {
+	    SafFile3 new_in_file=new SafFile3(mContext, true, uri, name);
         int pic_pos=0;
         PictureListItem pli=new PictureListItem();
         pli.setFileName(new_in_file.getName());
@@ -933,6 +936,7 @@ public class ActivityMain extends AppCompatActivity {
             pic_pos=mGp.showedPictureList.size();
         }
         mGp.showedPictureList.add(pli);
+        pli.setInputFile(new_in_file);
 
         mGp.currentPictureList=new ArrayList<PictureListItem>();
         mGp.currentFolderListItem=new FolderListItem();
@@ -2821,7 +2825,7 @@ public class ActivityMain extends AppCompatActivity {
 	};
 
 	private void reshowThumbnailView(final int pic_pos) {
-		mGp.currentView=CURRENT_VIEW_THUMBNAIL;
+        mGp.currentView=CURRENT_VIEW_THUMBNAIL;
 		mGp.folderView.setVisibility(LinearLayout.GONE);
 		mGp.thumbnailView.setVisibility(LinearLayout.VISIBLE);
 		mGp.pictureView.setVisibility(LinearLayout.GONE);
@@ -2855,7 +2859,7 @@ public class ActivityMain extends AppCompatActivity {
 	};
 
 	public void showFolderView() {
-		mUtil.addDebugMsg(1, "I", "showFolderView entered, mGp.mCurrentView="+mGp.currentView);
+        mUtil.addDebugMsg(1, "I", "showFolderView entered, mGp.mCurrentView="+mGp.currentView);
 		mGp.currentView=CURRENT_VIEW_FOLDER;
 		mActionBar.setDisplayHomeAsUpEnabled(false);
 		mGp.folderView.setVisibility(LinearLayout.VISIBLE);
@@ -3506,7 +3510,7 @@ public class ActivityMain extends AppCompatActivity {
 
 					} else {
 						String e_msg=CommonUtilities.sharePictures(mContext, send_fp);
-						if (!e_msg.equals("")) {
+						if (e_msg!=null) {
 						    mUtil.addDebugMsg(1,"E", "Share error="+e_msg);
                         }
 					}

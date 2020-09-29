@@ -19,11 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         layout="@layout/context_button_rename" />
-    <include
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        layout="@layout/context_button_paste" />
+
     <include
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -34,6 +30,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         layout="@layout/context_button_cut" />
+
+    <include
+        layout="@layout/context_button_paste"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
     <include
         android:layout_width="0dp"
         android:layout_height="wrap_content"
