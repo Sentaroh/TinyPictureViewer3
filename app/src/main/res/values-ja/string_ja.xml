@@ -6,8 +6,8 @@
         <string name="msgs_about_dlg_privacy_btn">プライバシー</string>
         <string name="msgs_dlg_title_about">TinyPictureViewer3</string>
         <string name="msgs_dlg_title_about_func_desc">TinyPictureViewer3_Desc_JA_Short.htm</string>
-        <string name="msgs_dlg_title_about_change_desc">TinyPictureViewer3_Change_JA.htm</string>
-        <string name="msgs_dlg_title_about_privacy_desc">TinyPictureViewer3_Privacy_JA.htm</string>
+        <string name="msgs_dlg_title_about_change_desc">TinyPictureViewer3_Change_JA.html</string>
+        <string name="msgs_dlg_title_about_privacy_desc">TinyPictureViewer3_Privacy_JA.html</string>
     <!-- Log -->
         <string name="msgs_log_management_title">ログ管理</string>
         <string name="msgs_log_management_label_delete">ログの削除</string>
