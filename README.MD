@@ -12,8 +12,8 @@ https://github.com/Sentaroh/TinyPictureViewer3/releases
 
 ### License information  
 - This software includes the work that is distributed in the Apache License 2.0.  
-  - metadata-extractor 2.9.1(https://github.com/drewnoakes/metadata-extractor)  
+  - [metadata-extractor 2.9.1](https://github.com/drewnoakes/metadata-extractor)  
 - This software includes the work that is distributed in the MIT License.  
-  - ImageViewTouch for Android(https://github.com/sephiroth74/ImageViewZoom)  
+  - [ImageViewTouch for Android](https://github.com/sephiroth74/ImageViewZoom)  
 - This software includes the work that is distributed in the XMP Specification Public Patent License  
-  - Xmpcore-5.1.3(https://www.adobe.com/devnet/xmp.html) 
+  - [Xmpcore-5.1.3](https://www.adobe.com/devnet/xmp.html) 
