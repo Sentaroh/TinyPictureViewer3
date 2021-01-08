@@ -159,7 +159,7 @@ public class PictureView {
 		
 		sv.picture_view_pos_x=mGp.customViewPager.getCurrentItem();
 		sv.picture_view_file_name=mGp.pictureViewFileName.getText().toString();
-		sv.picture_view_info=mGp.pictureViewFileInfo.getText().toString();
+		sv.picture_view_info=mGp.pictureViewFileInfo.getOriginalText().toString();
 		sv.picture_view_show_info=mGp.pictureViewFileInfo.getVisibility();
 		sv.picture_view_zoom=mGp.pictureViewZoomRatio.getText().toString();
 		
